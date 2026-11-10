@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kampung Rukun Cilik Intervention Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Same world as Kabar Kampung: warm cream, grape for actions, one colour per tradition. Layout: a scrolling "deck" of full-width chapters with a side progress rail and a presentation mode */
+  --bg:#FFF9F1;--paper:#FFFFFF;--ink:#2B2A4C;--muted:#5E5B78;
+  --grape:#5B3FD1;--grape-deep:#2D1F73;--grape-soft:#ECE8FF;
+  --sun:#FFC93C;--sun-soft:#FFF1C7;--honey:#7F5200;
+  --coral:#FF8A65;--coral-soft:#FFE3D8;--coral-deep:#B4421C;
+  --mint:#3FBFA0;--mint-soft:#D7F3EA;--mint-deep:#17705A;
+  --sky:#5AA9F2;--sky-soft:#DCEEFD;--sky-deep:#1D5C9E;
+  --line:#F0E6D8;--line-strong:#E0D2BE;
+  --display:"Fredoka","Nunito",system-ui,sans-serif;--body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;margin:0;line-height:1.12;text-wrap:balance}
+p{margin:0}
+button{font-family:inherit;font-size:inherit;color:inherit;cursor:pointer}
+a{color:var(--grape)}
+:focus-visible{outline:3px solid var(--grape);outline-offset:3px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:30;background:rgba(255,249,241,.93);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand i{width:36px;height:36px;border-radius:12px;background:var(--grape);display:flex;align-items:center;justify-content:center}
+.brand b{font-family:var(--display);font-weight:700;font-size:16.5px;display:block;line-height:1.1}
+.brand small{font-size:11.5px;color:var(--muted);font-weight:800}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 14px;border-radius:14px;border:1.5px solid var(--line-strong);background:var(--paper);font-weight:800;font-size:13.5px;text-decoration:none;color:var(--ink)}
+.tbtn.primary{background:var(--grape);border-color:var(--grape);color:#fff}
+.tbtn[aria-pressed="true"]{background:var(--mint-soft);border-color:var(--mint);color:var(--mint-deep)}
+.progress{position:absolute;left:0;bottom:-1.5px;height:4px;background:linear-gradient(90deg,var(--coral),var(--sun),var(--mint),var(--sky));width:0}
+
+/* side rail */
+.rail{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:25;display:flex;flex-direction:column;gap:8px}
+.rail a{display:flex;align-items:center;justify-content:flex-end;gap:8px;text-decoration:none}
+.rail a span{font-size:12px;font-weight:800;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:2px 8px;opacity:0;transform:translateX(6px);transition:.2s;pointer-events:none;white-space:nowrap}
+.rail a i{width:11px;height:11px;border-radius:6px;background:var(--line-strong);transition:.2s}
+.rail a:hover span,.rail a:focus-visible span{opacity:1;transform:none}
+.rail a[aria-current="true"] i{background:var(--grape);height:26px}
+@media (max-width:1240px){.rail{display:none}}
+
+/* chapters */
+.ch{padding:84px 0;position:relative;overflow:hidden}
+.ch.tint{background:var(--paper)}
+.ch.dark{background:var(--grape-deep);color:#fff}
+.ch.dark .kick{color:var(--sun)}
+.ch.dark .lead{color:#DCD5FF}
+.kick{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--grape)}
+.kick .n{font-family:var(--display);font-size:13px;background:var(--sun);color:var(--ink);border-radius:8px;padding:2px 8px;letter-spacing:0}
+h2.t{font-size:clamp(34px,5vw,56px);font-weight:700;margin:12px 0 14px}
+.lead{font-size:18px;color:var(--muted);max-width:62ch}
+.mt{margin-top:28px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:24px;padding:22px;transition:translate .25s ease,rotate .25s ease}
+.ch.tint .card{background:var(--bg)}
+.card h3{font-size:21px;margin-bottom:8px}
+.card p,.card li{color:var(--muted);font-size:15.5px}
+.card ul,.card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:900;border-radius:999px;padding:5px 12px}
+.c-swara{background:var(--coral-soft);color:var(--coral-deep)}.c-tenang{background:var(--mint-soft);color:var(--mint-deep)}.c-becik{background:var(--sun-soft);color:var(--honey)}.c-misi{background:var(--sky-soft);color:var(--sky-deep)}
+.ref{font-size:13px;font-weight:800;color:var(--grape);text-decoration:none;border-bottom:1.5px dotted currentColor}
+
+/* reveal */
+html.anim .rv{opacity:0;transform:translateY(40px) scale(.97);transition:opacity .6s ease,transform .75s cubic-bezier(.2,.9,.25,1.25),translate .25s ease,rotate .25s ease}
+html.anim .rv.in{opacity:1;transform:none}
+html.anim .rv.up{opacity:0;transform:translateY(-40px) scale(.97)}
+
+/* hero */
+.hero{padding:70px 0 60px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px;align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(46px,7vw,86px);font-weight:700;line-height:1.02;margin:16px 0}
+.hero h1 em{font-style:normal;color:var(--coral-deep)}
+.hero h1 u{text-decoration:none;background:linear-gradient(transparent 70%,var(--sun) 70%)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.meta span{font-size:13.5px;font-weight:800;background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:6px 12px}
+.village{position:relative;height:420px}
+.blob{position:absolute;border-radius:50%;display:block;cursor:pointer;transition:translate .35s ease}
+.blob .e{position:absolute;top:28%;width:22%;height:22%;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.blob .e:nth-of-type(1){left:24%}.blob .e:nth-of-type(2){right:24%}
+.blob .e b{width:46%;height:46%;border-radius:50%;background:var(--ink);display:block;transition:transform .08s linear}
+.blob .m{position:absolute;left:37%;width:26%;height:11%;top:58%;border:solid var(--ink);border-width:0 0 3px;border-radius:0 0 50% 50%/0 0 100% 100%}
+.blob.blink .e{transform:scaleY(.12)}
+.b1{width:190px;height:190px;background:var(--coral);left:6%;top:30px}
+.b2{width:150px;height:150px;background:var(--mint);right:10%;top:10px}
+.b3{width:130px;height:130px;background:var(--sun);left:36%;bottom:20px}
+.b4{width:110px;height:110px;background:var(--sky);right:4%;bottom:60px}
+.roof{position:absolute;left:50%;top:150px;transform:translateX(-50%);width:0;height:0;border-left:70px solid transparent;border-right:70px solid transparent;border-bottom:56px solid var(--grape)}
+.house{position:absolute;left:50%;top:205px;transform:translateX(-50%);width:110px;height:84px;background:var(--paper);border:3px solid var(--grape);border-radius:8px}
+.house::after{content:"";position:absolute;left:40px;bottom:-3px;width:28px;height:44px;background:var(--sun);border-radius:6px 6px 0 0}
+@media (prefers-reduced-motion:no-preference){
+  .bob{animation:bob 4s ease-in-out infinite}.bob.d2{animation-delay:-1s}.bob.d3{animation-delay:-2s}.bob.d4{animation-delay:-3s}
+  @keyframes bob{50%{transform:translateY(-10px)}}
+  .blob.boing{animation:boing .6s cubic-bezier(.3,1.6,.5,1)}
+  @keyframes boing{30%{transform:scale(1.18,.84)}60%{transform:scale(.92,1.08)}}
+}
+
+/* school strengths */
+.str{display:flex;gap:14px;align-items:flex-start}
+.str .ic{width:46px;height:46px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:18px}
+.str h3{font-size:18px;margin:4px 0 2px}
+
+/* concern */
+.concern{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:700px){.concern{grid-template-columns:1fr}}
+.concern .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff;padding:30px}
+.concern .card h3{font-size:28px}
+.concern .card p{color:#DCD5FF}
+.concern .big{font-family:var(--display);font-size:64px;font-weight:700;line-height:1;color:var(--sun)}
+
+/* goals flip */
+.flip{perspective:900px;min-height:230px;background:none;border:none;padding:0;text-align:left}
+.flip,.ob{display:block;width:100%}
+.flip .in,.ob .in{display:block}
+.flip .fc,.flip .bc,.ob .fc,.ob .bc{box-sizing:border-box}
+.flip .in{position:relative;width:100%;height:100%;min-height:230px;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,1.3,.5,1)}
+.flip[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.flip .fc,.flip .bc{position:absolute;inset:0;backface-visibility:hidden;border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.flip .fc{background:var(--paper);border:1.5px solid var(--line)}
+.flip .bc{transform:rotateY(180deg);color:#fff}
+.flip .fc .big{font-family:var(--display);font-size:46px;font-weight:700;line-height:1}
+.flip small{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.flip .hint{margin-top:auto;font-size:12.5px;font-weight:800;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.flip .in{transition:none}}
+
+/* traditions */
+.tpick{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tpick button{display:flex;align-items:center;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:18px;padding:10px 16px 10px 10px;font-weight:800;font-size:15px;transition:transform .12s}
+.tpick button:active{transform:scale(.95)}
+.tpick .dot{width:34px;height:34px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700}
+.tpick button small{display:block;font-size:11.5px;color:var(--muted);font-weight:800;line-height:1.1}
+.tpick button[aria-selected="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.tpick button[aria-selected="true"] small{color:#C9CCDD}
+.tpanel{margin-top:18px;border-radius:30px;padding:30px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px}
+@media (max-width:900px){.tpanel{grid-template-columns:1fr;padding:22px}}
+.tpanel h3{font-size:clamp(30px,4vw,44px);font-weight:700}
+.tpanel .mean{font-size:15px;font-weight:800;opacity:.8;margin-top:4px}
+.tpanel .when{display:inline-flex;margin-top:14px;font-size:13px;font-weight:900;background:rgba(255,255,255,.7);border-radius:999px;padding:6px 12px}
+.sub{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.sub button{border:none;border-radius:12px;padding:9px 14px;font-weight:800;font-size:14px;background:rgba(255,255,255,.65)}
+.sub button[aria-selected="true"]{background:var(--ink);color:#fff}
+.sbody{background:var(--paper);border-radius:22px;padding:22px;min-height:250px}
+.sbody p,.sbody li{font-size:15.5px;color:var(--ink)}
+.sbody ol,.sbody ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.sbody .say{display:block;font-weight:800;color:var(--grape)}
+.sbody .gl{font-style:italic;color:var(--muted);font-size:13.5px}
+.sbody h4{font-size:16px;margin:14px 0 6px}
+.lcard{margin-top:14px;background:var(--sun);border-radius:18px;padding:16px;max-width:320px}
+.lcard b{display:block;font-family:var(--display);font-size:15px;text-transform:uppercase}
+.lcard .stars{display:flex;gap:10px;margin-top:10px}
+.lcard .stars button{background:none;border:none;padding:0;width:44px;height:44px}
+.lcard .stars svg{width:44px;height:44px}
+
+/* theory */
+.th{display:flex;flex-direction:column;gap:10px}
+.th .tag{font-size:11.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--coral-deep)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.flow span{font-size:12.5px;font-weight:800;background:var(--grape-soft);color:var(--grape);border-radius:10px;padding:5px 10px}
+.flow i{font-style:normal;color:var(--muted);font-weight:900}
+
+/* parents ladder */
+.ladder{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:end}
+@media (max-width:760px){.ladder{grid-template-columns:1fr}}
+.rung{border-radius:24px;padding:22px;color:var(--ink)}
+.rung:nth-child(1){background:var(--sky-soft);min-height:190px}.rung:nth-child(2){background:var(--mint-soft);min-height:230px}.rung:nth-child(3){background:var(--sun-soft);min-height:270px}
+@media (max-width:760px){.rung{min-height:0 !important}}
+.rung b{font-family:var(--display);font-size:24px;display:block}
+.rung small{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;position:relative;margin-top:30px}
+.tl::before{content:"";position:absolute;left:4%;right:4%;top:27px;border-top:4px dashed var(--line-strong)}
+@media (max-width:900px){.tl{grid-template-columns:repeat(2,minmax(0,1fr))}.tl::before{display:none}}
+.tstep{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:none;padding:0}
+.tstep .pin{width:56px;height:56px;border-radius:28px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:14px;border:4px solid var(--bg);position:relative;z-index:1;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.tstep:hover .pin,.tstep[aria-pressed="true"] .pin{transform:scale(1.15) rotate(-8deg)}
+.tstep b{font-size:14px;text-align:center}
+.tstep[aria-pressed="true"] b{color:var(--grape)}
+.tdetail{margin-top:18px;background:var(--paper);border:1.5px solid var(--line);border-radius:22px;padding:20px 22px;min-height:96px}
+.tdetail h3{font-size:20px;margin-bottom:6px}
+
+/* obstacles */
+.ob{background:none;border:none;padding:0;text-align:left;perspective:900px;min-height:190px}
+.ob .in{position:relative;min-height:190px;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,1.3,.5,1)}
+.ob[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.ob .fc,.ob .bc{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.ob .fc{background:var(--coral-soft)}.ob .bc{background:var(--mint-soft);transform:rotateY(180deg)}
+.ob small{font-size:11.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.ob b{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.25}
+.ob .hint{margin-top:auto;font-size:12.5px;font-weight:800;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.ob .in{transition:none}}
+
+/* evaluation */
+.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.phases{grid-template-columns:1fr}}
+.ph{border-radius:24px;overflow:hidden;background:var(--paper);border:1.5px solid var(--line)}
+.ph header{padding:18px 20px}
+.ph header b{font-family:var(--display);font-size:28px;display:block}
+.ph header small{font-weight:900}
+.ph .q{font-weight:800;padding:0 20px;font-style:italic}
+.ph ul{margin:10px 0 20px;padding:0 20px 0 40px;display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:15px}
+.itabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.itabs button{border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 16px;font-weight:800}
+.itabs button[aria-selected="true"]{background:var(--grape);border-color:var(--grape);color:#fff}
+.ipanel{margin-top:14px;background:var(--paper);border:1.5px solid var(--line);border-radius:24px;padding:24px}
+.ipanel h3{font-size:24px;margin-bottom:6px}
+.score{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+@media (max-width:760px){.score{grid-template-columns:1fr}}
+.score div{background:var(--bg);border-radius:18px;padding:14px}
+.score b{font-family:var(--display);font-size:26px;color:var(--mint-deep);display:block}
+.ilist{columns:2;column-gap:28px;margin:12px 0 0;padding-left:20px}
+@media (max-width:700px){.ilist{columns:1}}
+.ilist li{margin-bottom:6px;break-inside:avoid;color:var(--muted)}
+.scale{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.scale span{font-size:12.5px;font-weight:800;background:var(--grape-soft);color:var(--grape);border-radius:10px;padding:5px 10px}
+.src{font-size:13px;color:var(--muted);font-style:italic;margin-top:12px}
+
+/* refs */
+.refs{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.refs li{list-style:none;background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:14px 18px;font-size:14.5px;color:var(--muted);padding-left:52px;text-indent:-34px}
+.refs li b{color:var(--ink)}
+.refs{padding:0}
+
+.thanks{text-align:center;padding:110px 0}
+.thanks h2{font-size:clamp(48px,8vw,96px);font-weight:700}
+.thanks .row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:26px}
+
+/* floating shapes */
+.fl-layer{position:absolute;inset:0;pointer-events:none;z-index:0}
+.ch > .wrap,.hero > .wrap{position:relative;z-index:1}
+.fl{position:absolute;opacity:.4;display:block;will-change:transform}
+
+/* presentation mode */
+body.present{scroll-snap-type:y mandatory}
+html:has(body.present){scroll-snap-type:y mandatory}
+body.present .ch,body.present .hero,body.present .thanks{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center}
+.pnav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:40;display:none;gap:8px;background:var(--ink);border-radius:999px;padding:6px}
+body.present .pnav{display:flex}
+.pnav button{border:none;background:transparent;color:#fff;font-weight:800;min-height:42px;padding:0 16px;border-radius:999px}
+.pnav button:hover{background:rgba(255,255,255,.14)}
+.pnav span{color:#C9CCDD;font-weight:800;font-size:13px;align-self:center;padding:0 6px;font-variant-numeric:tabular-nums}
+footer{border-top:1.5px solid var(--line);padding:24px 0 40px;font-size:13px;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#cover"><i aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC93C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></i><span><b>Kampung Rukun Cilik</b><small>PCED · Group 1 · TK Negeri 2 Yogyakarta</small></span></a>
+    <div class="tools">
+      <button type="button" class="tbtn" id="presentBtn" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Presentation mode</button>
+      <a class="tbtn primary" id="protoLink" href="index.html">Open the Kabar Kampung prototype →</a>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+<nav class="rail" id="rail" aria-label="Chapters"></nav>
+
+<main>
+<!-- COVER -->
+<section class="hero" id="cover" data-title="Cover">
+  <div class="wrap hero-grid">
+    <div class="rv">
+      <div class="kick"><span class="n">PCED</span>Group 1 · Intervention design</div>
+      <h1>Kampung <em>Rukun</em> <u>Cilik</u></h1>
+      <p class="lead">A “little village of harmony” for TK Negeri 2 Yogyakarta: four village traditions that help children name their feelings, calm down with an adult, notice kindness in friends, and carry it all home.</p>
+      <div class="meta"><span>Airlangga Mada P.</span><span>Aqila Denissa A. Z.</span><span>Lilia Alicia K. M.</span><span>Khalissa Nadhifa M.</span><span>Marita Almira S. A.</span><span>Khalisha Embun K.</span><span>Paula Elena Yara Wolf</span></div>
+    </div>
+    <div class="village" aria-hidden="true">
+      <span class="blob b1 bob" data-depth="16"><i class="e"><b></b></i><i class="e"><b></b></i><i class="m"></i></span>
+      <span class="blob b2 bob d2" data-depth="26"><i class="e"><b></b></i><i class="e"><b></b></i><i class="m"></i></span>
+      <span class="roof"></span><span class="house"></span>
+      <span class="blob b3 bob d3" data-depth="20"><i class="e"><b></b></i><i class="e"><b></b></i><i class="m"></i></span>
+      <span class="blob b4 bob d4" data-depth="32"><i class="e"><b></b></i><i class="e"><b></b></i><i class="m"></i></span>
+    </div>
+  </div>
+</section>
+
+<!-- 1 SCHOOL -->
+<section class="ch tint" id="school" data-title="The school">
+  <div class="wrap">
+    <div class="rv"><div class="kick"><span class="n">01</span>Context</div><h2 class="t">What does TK Negeri 2 Yogyakarta look like?</h2>
+    <p class="lead">A state kindergarten with strong routines and a culture-based identity. These strengths are what the intervention builds on.</p></div>
+    <div class="grid g3 mt">
+      <div class="card str rv"><span class="ic c-swara">01</span><div><h3>Sekolah Budaya</h3><p>Culture school, with Dolanan Jawa (traditional Javanese games).</p></div></div>
+      <div class="card str rv"><span class="ic c-tenang">02</span><div><h3>5S</h3><p>Senyum, Sapa, Salam, Sopan, Santun: smile, greet, salute, be polite, be courteous.</p></div></div>
+      <div class="card str rv"><span class="ic c-becik">03</span><div><h3>Morning routine</h3><p>A daily start that gives every tradition an anchor point.</p></div></div>
+      <div class="card str rv"><span class="ic c-misi">04</span><div><h3>PORSENITAS</h3><p>The school’s sports and arts event.</p></div></div>
+      <div class="card str rv"><span class="ic c-swara">05</span><div><h3>Parent–Teacher Conference</h3><p>Held together with the school psychologist.</p></div></div>
+      <div class="card str rv"><span class="ic c-tenang">06</span><div><h3>Gerak Lagu</h3><p>Movement to song.</p></div></div>
+    </div>
+    <div class="card mt rv">
+      <h3>Setting: the classroom</h3>
+      <ul>
+        <li>A familiar setting for practising emotional regulation.</li>
+        <li>We observed disappointment, arguments, and competition among children.</li>
+        <li>Daily practice happens through routines, group activities, and turn-taking.</li>
+        <li>Teachers already guide children in managing emotions and frustration.</li>
+        <li>An important stage for developing emotional and social skills.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 2 CONCERN -->
+<section class="ch dark" id="concern" data-title="Biggest concern">
+  <div class="wrap">
+    <div class="rv"><div class="kick"><span class="n">02</span>The problem</div><h2 class="t">The biggest concerns.</h2>
+    <p class="lead">Two challenges came up in our observations and in conversations with the teachers.</p></div>
+    <div class="concern mt">
+      <div class="card rv"><div class="big">1</div><h3>Emotional regulation</h3><p>Teachers said children cannot yet manage their emotions, and we saw anger come out as fighting and grabbing.</p></div>
+      <div class="card rv"><div class="big">2</div><h3>Parents’ communication and different parenting styles</h3><p>Values taught at school fade when home does not continue them, and many families have two working parents.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 TARGETS -->
+<section class="ch" id="targets" data-title="Targets & goals">
+  <div class="wrap">
+    <div class="rv"><div class="kick"><span class="n">03</span>Character traits target</div><h2 class="t">What we want to grow.</h2></div>
+    <div class="grid g2 mt">
+      <div class="card rv" style="background:var(--coral-soft);border-color:var(--coral-soft)"><span class="chip" style="background:#fff;color:var(--coral-deep)">Within weeks</span><h3 style="margin-top:12px">Healthy self emotional regulation</h3><p>Students are able to regulate their emotions properly and “regulate” before “action”.</p></div>
+      <div class="card rv" style="background:var(--mint-soft);border-color:var(--mint-soft)"><span class="chip" style="background:#fff;color:var(--mint-deep)">Over 3–6 months</span><h3 style="margin-top:12px">Empathy and kindness</h3><p>Students develop and practise empathy and kindness towards each other.</p></div>
+    </div>
+    <h3 class="mt rv" style="font-size:26px">Goals: three dimensions of virtue <small style="font-family:var(--body);font-size:14px;color:var(--muted)">(tap a card)</small></h3>
+    <div class="grid g3" style="margin-top:14px">
+      <button type="button" class="flip rv" aria-pressed="false"><span class="in"><span class="fc"><small>Dimension 1</small><span class="big" style="color:var(--sky-deep)">Knowledge</span><span class="hint">Tap to see the goal ↻</span></span><span class="bc" style="background:var(--sky-deep)"><small>Knowledge</small><span>Students can explain the meaning of empathy, gratitude, and kindness, and why they are important.</span></span></span></button>
+      <button type="button" class="flip rv" aria-pressed="false"><span class="in"><span class="fc"><small>Dimension 2</small><span class="big" style="color:var(--mint-deep)">Reasoning</span><span class="hint">Tap to see the goal ↻</span></span><span class="bc" style="background:var(--mint-deep)"><small>Reasoning</small><span>Students can weigh their options and actions when they are upset.</span></span></span></button>
+      <button type="button" class="flip rv" aria-pressed="false"><span class="in"><span class="fc"><small>Dimension 3</small><span class="big" style="color:var(--coral-deep)">Practice</span><span class="hint">Tap to see the goal ↻</span></span><span class="bc" style="background:var(--coral-deep)"><small>Practice</small><span>Students regulate their emotions when feeling upset, even when unsupervised.</span></span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 4 INTERVENTION -->
+<section class="ch tint" id="intervention" data-title="Intervention">
+  <div class="wrap">
+    <div class="rv"><div class="kick"><span class="n">04</span>Intervention design</div><h2 class="t">Kampung Rukun Cilik.</h2>
+    <p class="lead">Kampung Rukun Cilik (“little village of harmony”) turns each class into a small Javanese village. Four village traditions teach children to name their feelings, calm down with an adult, notice kindness in friends, and carry all of it home. Every tradition at school has a family version at home, so what children learn in class continues after the bell.</p></div>
+    <div class="tpick rv" role="tablist" aria-label="Four traditions" id="tpick"></div>
+    <div class="tpanel rv" id="tpanel"></div>
+  </div>
+</section>
+
+<!-- 5 THEORY -->
+<section class="ch" id="theory" data-title="Theory mechanism">
+  <div class="wrap">
+    <div class="rv"><div class="kick"><span class="n">05</span>Theory mechanism</div><h2 class="t">Why it should work.</h2></div>
+    <div class="grid g2 mt">
+      <div class="card th rv"><span class="tag">Ecological systems &amp; educational philosophy</span><h3>Bronfenbrenner · Dewantara</h3><div class="flow"><span>School</span><i>↔</i><span>Home</span></div><p>Through Bronfenbrenner’s ecological systems theory, the intervention bridges the school–home divide by giving every school tradition a family version, so learning continues after the bell. The teacher embodies the <i>pamong</i>, teaching <i>ing ngarsa sung tuladha</i> (Dewantara’s philosophy: leading by example from the front) to give a direct, observable example.</p></div>
+      <div class="card th rv"><span class="tag">Emotion generation &amp; social learning</span><h3>Gross · Gottman · Bandura</h3><div class="flow"><span>Notice</span><i>→</i><span>Name the feeling</span><i>→</i><span>Calm down</span></div><p>Gross’s process model and Gottman’s emotion coaching both start from the idea that recognising and naming a feeling is the first step before a child can calm down. Bandura’s social learning theory adds that children learn emotional regulation mainly by hearing trusted adults do it, so the teacher models this vocabulary every day.</p></div>
+      <div class="card th rv"><span class="tag">Sociocultural scaffolding &amp; response modulation</span><h3>Vygotsky · Gross</h3><div class="flow"><span>Teacher-led</span><i>→</i><span>Short prompt</span><i>→</i><span>On their own</span></div><p>Vygotsky’s sociocultural theory (co-regulation): children aged 4–6 cannot yet calm down alone in a full outburst, so they first regulate with an adult to build the capacity for self-soothing. In practice, Panggonan Tenang intercepts the emotion-generation process by changing the situation, moving attention, or calming the body.</p></div>
+      <div class="card th rv"><span class="tag">Operant conditioning &amp; vicarious reinforcement</span><h3>Skinner · Bandura</h3><div class="flow"><span>Kind act</span><i>→</i><span>Specific praise</span><i>→</i><span>Repeated, and copied</span></div><p>Skinner: behaviour that is rewarded is repeated, so a daily routine explicitly praises waiting, helping, and kindness. Bandura’s vicarious learning: children copy what they see praised in a friend, and a cooperative, shared praise routine supports kindergarteners’ sharing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 PARENTS -->
+<section class="ch tint" id="parents" data-title="Parents as partners">
+  <div class="wrap">
+    <div class="rv"><div class="kick"><span class="n">06</span>Parents as partners</div><h2 class="t">Three ways parents take part.</h2></div>
+    <div class="ladder mt">
+      <div class="rung rv"><small>Step 1</small><b>Audience</b><p>Parents receive information and reports about their children’s behaviour from the school.</p></div>
+      <div class="rung rv"><small>Step 2</small><b>Client</b><p>Parents receive training and services from the school on how to carry out the programme at home.</p></div>
+      <div class="rung rv"><small>Step 3</small><b>Partner</b><p>Parents evaluate, contribute to the programme, and reinforce the character traits at home.</p></div>
+    </div>
+    <div class="grid g3 mt">
+      <div class="card rv"><h3>Partnerships help</h3><p>Parent–school partnerships improve social and behavioural development (<a class="ref" href="#refs">Smith et al., 2020</a>).</p></div>
+      <div class="card rv"><h3>Whole-school</h3><p>A whole-school approach is more comprehensive (<a class="ref" href="#refs">Goldberg et al., 2019</a>).</p></div>
+      <div class="card rv"><h3>Home reinforces</h3><p>Parents reinforce learning at home, through Layang Misi and the weekly Kabar Kampung.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 IMPLEMENTATION -->
+<section class="ch" id="approach" data-title="How we approach the school">
+  <div class="wrap">
+    <div class="rv"><div class="kick"><span class="n">07</span>Implementation</div><h2 class="t">How we approach the school.</h2><p class="lead">Six steps before the traditions start. Tap a step.</p></div>
+    <div class="tl rv" id="tl"></div>
+    <div class="tdetail rv" id="tdetail" aria-live="polite"></div>
+    <div class="grid g2 mt">
+      <div class="card rv"><h3>Principles of our approach</h3><ul><li>Fit into routines that already exist (yel-yel, going home, the Parent–Teacher Conference).</li><li>School leads, we support: teachers can adapt wording and timing.</li><li>No extra cost for families.</li><li>Children can say no or stop at any time during testing.</li></ul></div>
+      <div class="card rv"><h3>Possible obstacles <small style="font-family:var(--body);font-size:13px;color:var(--muted)">(tap to see the fix)</small></h3>
+        <div class="grid g2" style="margin-top:10px" id="obs"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 EVALUATION -->
+<section class="ch tint" id="evaluation" data-title="Evaluation">
+  <div class="wrap">
+    <div class="rv"><div class="kick"><span class="n">08</span>Evaluation</div><h2 class="t">What to consider, before to after.</h2></div>
+    <div class="phases mt">
+      <div class="ph rv"><header style="background:var(--coral-soft)"><b>Before</b><small>Week −2 to 0</small></header><p class="q">Are we ready to measure?</p><ul><li>Pilot the cards and stories with 2–3 children outside the sample: clear pictures? Javanese or Bahasa?</li><li>Train the observer: two raters score the same 3 children to check agreement.</li><li>Start the incident tally 2 weeks before the traditions begin.</li><li>Pre-test every child (week 0).</li></ul></div>
+      <div class="ph rv"><header style="background:var(--mint-soft)"><b>During</b><small>Week 1 to 16</small></header><p class="q">Is it running as planned?</p><ul><li>Fidelity: a weekly tick sheet per teacher (did it run? was the script used?).</li><li>Dosage: days each tradition ran; Layang Misi return rate.</li><li>Weekly incident tally and calm-down log.</li><li>Watch side effects: the corner used to avoid tasks, the same children getting thin praise.</li><li>A weekly 5-minute check-in is used to adjust.</li></ul></div>
+      <div class="ph rv"><header style="background:var(--sky-soft)"><b>After</b><small>Week 16 to 20</small></header><p class="q">Did children change, and does it last?</p><ul><li>Post-test with the same tools, observer, room, and language.</li><li>Feedback from teachers, parents (WhatsApp poll), and children (smiley scale).</li><li>Follow-up about 4 weeks later, without our support.</li><li>Report back to the school and parents; agree on what continues.</li></ul></div>
+    </div>
+    <h3 class="mt rv" style="font-size:26px">Pre- and post-test instruments</h3>
+    <p class="rv" style="color:var(--muted);margin-top:6px">The same instruments are used before and after the intervention to measure the difference.</p>
+    <div class="itabs rv" role="tablist" id="itabs"></div>
+    <div class="ipanel rv" id="ipanel"></div>
+    <h3 class="mt rv" style="font-size:26px">What to keep in mind</h3>
+    <div class="grid g4" style="margin-top:14px">
+      <div class="card rv"><h3>Children grow anyway</h3><p>Ages 4–6 develop fast, so a pre–post gain cannot be fully credited to the programme. Option: one class starts a few weeks later as a waitlist, so every class still gets the programme.</p></div>
+      <div class="card rv"><h3>Rater bias</h3><p>Teachers may rate their own class kindly, so the child tasks are done by an outside observer, and teacher and parent ratings are cross-checked.</p></div>
+      <div class="card rv"><h3>Child-friendly testing</h3><p>Play-like, one child at a time. A child can say no or stop at any time and is never pushed.</p></div>
+      <div class="card rv"><h3>Timing</h3><p>Pre and post at a similar time of day. Avoid testing right after holidays or big events such as PORSENITAS.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 REFERENCES -->
+<section class="ch" id="refs" data-title="References">
+  <div class="wrap">
+    <div class="rv"><div class="kick"><span class="n">09</span>References</div><h2 class="t">Sources.</h2></div>
+    <ul class="refs">
+      <li class="rv"><b>Denham Lab.</b> (n.d.). Social-emotional measures. George Mason University. Retrieved November 4, 2026, from <a href="https://denhamlab.gmu.edu/semeasures.html">https://denhamlab.gmu.edu/semeasures.html</a></li>
+      <li class="rv"><b>Flook, L., Goldberg, S. B., Pinger, L., &amp; Davidson, R. J.</b> (2015). Promoting prosocial behavior and self-regulatory skills in preschool children through a mindfulness-based kindness curriculum. <i>Developmental Psychology, 51</i>(1), 44–51. <a href="https://doi.org/10.1037/a0038256">https://doi.org/10.1037/a0038256</a></li>
+      <li class="rv"><b>Goldberg, J. M., Sklad, M., Elfrink, T. R., Schreurs, K. M. G., Bohlmeijer, E. T., &amp; Clarke, A. M.</b> (2019). Effectiveness of interventions adopting a whole school approach to enhancing social and emotional development: A meta-analysis. <i>European Journal of Psychology of Education, 34</i>, 755–782. <a href="https://doi.org/10.1007/s10212-018-0406-9">https://doi.org/10.1007/s10212-018-0406-9</a></li>
+      <li class="rv"><b>Herndon, K. J., Bailey, C. S., Shewark, E. A., Denham, S. A., &amp; Bassett, H. H.</b> (2013). Preschoolers’ emotion expression and regulation: Relations with school adjustment. <i>The Journal of Genetic Psychology, 174</i>(6), 642–663. <a href="https://doi.org/10.1080/00221325.2012.759525">https://doi.org/10.1080/00221325.2012.759525</a></li>
+      <li class="rv"><b>Hormann, O., Voltmer, K., &amp; von Salisch, M.</b> (2025). It takes two to tango – how teacher-child interactions help advance children’s emotion knowledge. <i>Frontiers in Psychology, 16</i>, Article 1622163. <a href="https://doi.org/10.3389/fpsyg.2025.1622163">https://doi.org/10.3389/fpsyg.2025.1622163</a></li>
+      <li class="rv"><b>Liu, H., Qiu, Y., &amp; Luo, L.</b> (2022). Exploring family educational involvement and social skills in Chinese preschoolers: The moderating role of parent-child relationship. <i>Frontiers in Psychology, 13</i>, Article 911421. <a href="https://doi.org/10.3389/fpsyg.2022.911421">https://doi.org/10.3389/fpsyg.2022.911421</a></li>
+      <li class="rv"><b>Machado, P. M., Veríssimo, M., &amp; Denham, S.</b> (2012). O teste de conhecimento das emoções para crianças de idade pré-escolar [The Affect Knowledge Test for preschool children]. <i>Revista Iberoamericana de Diagnóstico e Avaliação Psicológica, 34</i>(1), 201–222. <a href="http://hdl.handle.net/10400.12/2631">http://hdl.handle.net/10400.12/2631</a></li>
+      <li class="rv"><b>Nischak, P., Lorusso, S., Diebold, T., Harel, O., Burkhardt Bossi, C., &amp; Perren, S.</b> (2026). The development and validation of the emotion regulation scoring system (ERSS) – an instrument to observe preschoolers’ emotion regulation in play situations. <i>Early Education and Development</i>, 1–22. <a href="https://doi.org/10.1080/10409289.2026.2714533">https://doi.org/10.1080/10409289.2026.2714533</a></li>
+      <li class="rv"><b>Silkenbeumer, J., Lüken, L. M., Holodynski, M., &amp; Kärtner, J.</b> (2024). Emotion socialization in early childhood education and care – How preschool teachers support children’s emotion regulation. <i>Social and Emotional Learning: Research, Practice, and Policy, 4</i>, Article 100057. <a href="https://doi.org/10.1016/j.sel.2024.100057">https://doi.org/10.1016/j.sel.2024.100057</a></li>
+      <li class="rv"><b>Smith, T. E., Sheridan, S. M., Kim, E. M., Park, S., &amp; Beretvas, S. N.</b> (2020). The effects of family-school partnership interventions on academic and social-emotional functioning: A meta-analysis exploring what works for whom. <i>Educational Psychology Review, 32</i>, 511–544. <a href="https://doi.org/10.1007/s10648-019-09509-w">https://doi.org/10.1007/s10648-019-09509-w</a></li>
+      <li class="rv"><b>Zhang, Q., Ruan, J., &amp; Xiong, D.</b> (2025). Differential effects of exposure to cooperative versus competitive games on sharing behavior in young children. <i>Frontiers in Psychiatry, 16</i>, Article 1545932. <a href="https://doi.org/10.3389/fpsyt.2025.1545932">https://doi.org/10.3389/fpsyt.2025.1545932</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="thanks" id="thanks" data-title="Thank you">
+  <div class="wrap rv">
+    <div class="kick" style="justify-content:center"><span class="n">♥</span>Matur nuwun</div>
+    <h2>Thank you!</h2>
+    <p class="lead" style="margin:14px auto 0">Kampung Rukun Cilik · PCED Group 1 · TK Negeri 2 Yogyakarta</p>
+    <div class="row"><a class="tbtn primary" id="protoLink2" href="index.html">Try the Kabar Kampung prototype →</a><a class="tbtn" href="#cover">Back to the start ↑</a></div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">Web version of the PCED Group 1 intervention design deck. Illustrations are original shapes, not the deck’s artwork.</div></footer>
+
+<div class="pnav" role="group" aria-label="Presentation controls"><button type="button" id="pPrev">← Previous</button><span id="pCount">1 / 1</span><button type="button" id="pNext">Next →</button><button type="button" id="pExit">Exit</button></div>
+
+<script>
+(function(){
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- traditions ---------- */
+  var TR=[
+    {id:'swara',name:'Swara Rasa',mean:'“Voice of feelings”',when:'After the class chant (yel-yel), and all day',bg:'var(--coral-soft)',dot:'var(--coral)',
+     why:'<p>Teacher A said children cannot yet manage their emotions, and we saw anger come out as fighting and grabbing. A child has to recognise and name a feeling before they can calm it, which is the first step in Gross’s model; giving words to feelings is also the first step of Gottman’s emotion coaching.</p><p style="margin-top:10px">Children learn most of this by hearing trusted adults do it (Bandura), and in Dewantara’s words the <i>pamong</i> teaches <i>ing ngarsa sung tuladha</i>, by example from the front. That is why the core of Swara Rasa is <b>the teacher saying feelings out loud every day</b>; it needs no materials and fits into every moment.</p><p style="margin-top:10px">It is also what the evidence supports: in a study of 275 children aged 3–5, teachers trained to talk about inner states used that talk more, and it partly explained children’s gains in emotion knowledge (<a class="ref" href="#refs">Hormann et al., 2025</a>). Hearing is not enough, though; children also need a way to answer. Paper feeling masks, borrowed from the Javanese <i>topeng</i>, give a child who has no words yet something to hold up instead of hitting.</p>',
+     how:'<h4 style="margin-top:0">A. The teacher speaks their own feelings (all day)</h4><ol><li>The feeling and why: <span class="say">“Bu Guru agak kesel, spidolnya habis.”</span><span class="gl">“I’m a bit annoyed, the marker has run out.”</span></li><li>The calming step: <span class="say">“Bu Guru tiup lilin dhisik… siji, loro, telu.”</span><span class="gl">“I’ll blow out the candle first… one, two, three.”</span></li><li>What happens next: <span class="say">“Saiki Bu Guru golek spidol liyane.”</span><span class="gl">“Now I’ll look for another marker.”</span></li></ol><h4>B. The teacher names children’s feelings (when a child is upset)</h4><ol><li>Notice and name: <span class="say">“Awakmu nesu ya, menaramu ambruk.”</span><span class="gl">“You’re angry, your tower fell down.”</span></li><li>Check: <span class="say">“Bener?”</span><span class="gl">“Right?” Let the child agree or correct.</span></li><li>Offer a next step: <span class="say">“Arep nuduhake tandha rasamu, atau tiup lilin bareng Bu Guru?”</span><span class="gl">“Do you want to show your feeling sign, or blow out the candle with me?” This leads straight into Panggonan Tenang when needed.</span></li></ol>',
+     tips:'<p>Keep it short and honest. One sentence is enough. Talk about the situation and never blame a child for the teacher’s feeling (“Bu Guru kesel, kowe…”, “I’m annoyed, you…”, is not used). Show strong feelings calmly, without acting scary. All 8 teachers use the same phrases from the script card.</p>',
+     out:'<p>Teachers speak feelings out loud. Later, most children name at least 3 of the 4 feelings and give a reason. In conflicts, more children say <i>“Aku nesu”</i> (“I’m angry”) or show the sign before, or instead of, hitting, and some children start copying the teacher’s words (<i>“Aku tiup lilin dhisik”</i>, “I’ll blow out the candle first”, or <i>“Aku kudu sabar”</i>, “I have to be patient”).</p>'},
+    {id:'tenang',name:'Panggonan Tenang',mean:'“Calm place”',when:'Whenever a child is overwhelmed',bg:'var(--mint-soft)',dot:'var(--mint)',
+     why:'<p>Upset children had nowhere to step out, so anger played out in front of the group. Gross’s model says an emotion can be changed by changing the situation, moving attention, or calming the body, and this corner does all three. At 4–6, children cannot yet calm down alone in a full outburst; they first regulate with an adult (co-regulation, after Vygotsky).</p><p style="margin-top:10px">In video observations of 213 children aged 2–6, teachers’ emotion coaching and prompts that asked children to think about their own strategy were linked to children regulating on their own (<a class="ref" href="#refs">Silkenbeumer et al., 2024</a>). Slow breathing was part of the Kindness Curriculum, which reduced selfish behaviour in a preschool randomised trial (<a class="ref" href="#refs">Flook et al., 2015</a>). We found no rigorous trial of calm corners themselves, so this part rests on theory and classroom practice.</p>',
+     how:'<ol><li>Set up a mat in a quiet corner.</li><li>Practise when everyone is calm, and introduce it gently but consistently as a place where no one will judge you for being <i>nesu</i> (angry), and a safe place to take a rest from playing, especially when emotionally overwhelmed.</li><li>In a real outburst, the teacher goes along: <span class="say">“Ayo, Panggonan Tenang bareng Bu Guru.”</span><span class="gl">“Come on, to the calm place with me.”</span> They sit together and blow out three candles. The teacher names the feeling: <span class="say">“Awakmu nesu ya.”</span><span class="gl">“You’re angry, aren’t you.”</span></li><li>A ready check, not a timer. The child shows a feeling sign or a thumbs-up, and the teacher asks <span class="say">“Wis tenang?”</span><span class="gl">“Calm now?”</span> If still angry, one more breath together, then back.</li><li>If a child leaves early, do not force them back. The teacher stays close and prompts “tiup lilin dhisik” where the child is. If a friend was involved, the child goes to a different spot first.</li><li>Over weeks, move from teacher-led, to a short prompt, to some children going by themselves.</li><li>The corner is never a punishment or a time-out.</li></ol>',
+     tips:'<p>Go along rather than send. Keep the voice low and the words few. Never use the corner as a consequence; if it starts being used to avoid tasks, the weekly check-in is where that side effect is caught.</p>',
+     out:'<p>We do not expect children this young to calm down fully alone. Within weeks, more children calm down after only a short prompt, a few start using the corner by themselves, and fewer outbursts turn into fights.</p>'},
+    {id:'becik',name:'Pamitan Becik',mean:'“Kind goodbye”',when:'Before going home, every day',bg:'var(--sun-soft)',dot:'var(--sun)',
+     why:'<p>Praise in class went to the fastest answer, and children argued and sulked over turns. Behaviour that is rewarded is repeated (Skinner), and children copy what they see praised in a friend (Bandura), so the class needs a daily moment that praises waiting, helping, and kindness instead of speed.</p><p style="margin-top:10px">A shared, cooperative routine also fits the evidence that cooperative rather than competitive play increased kindergarteners’ sharing (<a class="ref" href="#refs">Zhang et al., 2025</a>). The risk is a popularity contest where some children are never praised, often the same children every day, so the design guarantees every child is praised.</p>',
+     how:'<ol><li>Children sit in a circle in an order drawn from name sticks, so neighbours change every day.</li><li>Each child praises the friend on their right with the starter <span class="say">“Aku seneng amarga mau kowe…”</span><span class="gl">“I liked it today when you…”</span> The last child praises the first, so everyone gives one and gets one.</li><li>Praise is about what a child did, not looks or talent: <span class="say">“kowe ngenteni giliran”</span><span class="gl">“you waited your turn”</span><span class="say">“kowe ngajak aku dolanan”</span><span class="gl">“you asked me to play”</span>, not <span class="say">“kowe ayu”</span><span class="gl">“you are pretty”</span>.</li><li>Everyone answers <span class="say">“Matur nuwun”</span><span class="gl">“Thank you”</span>, says <span class="say">“Sugeng kondur”</span><span class="gl">“Have a safe trip home”</span>, and goes home.</li></ol>',
+     tips:'<ol><li>Model good praise in week 1 by praising a few children first.</li><li>During the day, note one small good act by children who are rarely noticed, such as a quiet child, and whisper a hint to whoever will praise them: <span class="say">“Tadi D bantu beresin balok, kamu lihat?”</span><span class="gl">“D helped tidy the blocks earlier, did you see?”</span></li><li>Help a stuck child with two choices (<span class="say">“Dia tadi bantu atau berbagi?”</span><span class="gl">“Did they help or share earlier?”</span>), or let a shy child whisper while the teacher says it aloud.</li><li>Never skip a child who misbehaved that day; find something small and true, but do not praise anything linked to an incident.</li><li>Never run votes or a “kindest child of the day”.</li></ol>',
+     out:'<p>Every child hears one specific good thing about themselves every day, children can name a kind act by a friend without help, and teacher praise shifts from <i>“pinter, cepet”</i> (clever, fast) to <i>“pinter, sabar”</i> (clever, patient).</p>'},
+    {id:'misi',name:'Layang Misi',mean:'“Mission letter”',when:'Card goes home Friday, comes back next Friday',bg:'var(--sky-soft)',dot:'var(--sky)',
+     why:'<p>Both teachers said values taught at school fade when home does not continue them. Many families have two working parents, so the home part has to be short, fit into routines that already exist, and work for whoever cares for the child. <i>Layang</i> means “letter” in Javanese: children receive a letter from the village, do the mission with their family, and post it back.</p><p style="margin-top:10px">The child, not the parent, colours the stars, so the child owns the mission. When the card comes back and children tell the class, the family’s effort becomes visible at school. Home involvement was linked to preschoolers’ social skills in a large Chinese sample (<a class="ref" href="#refs">Liu et al., 2022</a>), though that study shows a link, not a cause, and parent programmes show mixed results for children.</p>',
+     how:'<ul><li><b>Friday:</b> each child gets that week’s card in their bag. The teacher shows the class the mission picture so children can explain it at home.</li><li><b>At home (weekend and evenings):</b> any adult does the 5-minute mission with the child, up to three times. The child colours a star each time.</li><li><b>Next Friday:</b> the child posts the card into the Kotak Pos Kampung, a cardboard post box in class.</li><li>Name sticks pick 2–3 children to tell the class what they did. Because it is random, every child prepares a little story from their experience, which challenges their confidence and empathy.</li></ul><div class="lcard"><b>Nama: Fai</b><b style="margin-top:6px">Misi: mengingatkan / memimpin doa makan</b><span class="gl" style="display:block;font-size:12.5px">Mission: remind everyone / lead the mealtime prayer. Tap the stars.</span><div class="stars" id="lstars"></div></div>',
+     tips:'<p><b>Fairness for busy families.</b></p><ul><li>There are no grades and no rankings.</li><li>If a card does not come back, the child is never scolded. On Friday they do a mini version of the mission in class with the teacher or a friend, colour a star, and post it like everyone else.</li><li>The school provides all cards and the post box, and nothing has to be bought or printed at home.</li></ul>',
+     out:'<p>Cards come back with coloured stars most weeks, every child tells a home story at least once, and children mention at school what they did at home.</p>'}
+  ];
+  var tIdx=0,sIdx='why';
+  var tp=document.getElementById('tpick'),pn=document.getElementById('tpanel');
+  function renderPick(){tp.innerHTML=TR.map(function(t,i){return '<button type="button" role="tab" aria-selected="'+(i===tIdx)+'" data-t="'+i+'"><span class="dot" style="background:'+t.dot+'">0'+(i+1)+'</span><span>'+t.name+'<small>'+t.mean+'</small></span></button>';}).join('');}
+  function renderPanel(){
+    var t=TR[tIdx],S=[['why','Why'],['how','How'],['tips','Tips for the pamong'],['out','Expected output']];
+    pn.style.background=t.bg;
+    pn.innerHTML='<div><span class="chip" style="background:#fff">Tradition 0'+(tIdx+1)+' of 4</span><h3 style="margin-top:12px">'+t.name+'</h3><div class="mean">'+t.mean+'</div><span class="when">'+t.when+'</span><p style="margin-top:16px;font-size:14px;color:var(--muted)">Use the tabs to move through the rationale, the steps, tips for the teacher, and what we expect to see.</p></div>'+
+      '<div><div class="sub" role="tablist">'+S.map(function(x){return '<button type="button" role="tab" aria-selected="'+(sIdx===x[0])+'" data-s="'+x[0]+'">'+x[1]+'</button>';}).join('')+'</div><div class="sbody">'+t[sIdx]+'</div></div>';
+    var ls=document.getElementById('lstars');if(ls)renderStars(ls);
+  }
+  var lit=0;
+  function renderStars(el){var h='';for(var i=0;i<3;i++)h+='<button type="button" data-star="'+i+'" aria-label="Star '+(i+1)+'"><svg viewBox="0 0 24 24" fill="'+(i<lit?'#fff':'none')+'" stroke="#2B2A4C" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></button>';el.innerHTML=h;}
+  tp.addEventListener('click',function(e){var b=e.target.closest('[data-t]');if(!b)return;tIdx=+b.getAttribute('data-t');sIdx='why';renderPick();renderPanel();});
+  pn.addEventListener('click',function(e){var b=e.target.closest('[data-s]');if(b){sIdx=b.getAttribute('data-s');renderPanel();return;}var st=e.target.closest('[data-star]');if(st){var i=+st.getAttribute('data-star');lit=(lit===i+1)?i:i+1;renderStars(document.getElementById('lstars'));}});
+  renderPick();renderPanel();
+
+  /* ---------- flip cards ---------- */
+  document.querySelectorAll('.flip').forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');});});
+
+  /* ---------- timeline ---------- */
+  var TL=[
+    {w:'Wk −4',c:'var(--coral)',t:'Sowan (courtesy visit) and feedback',d:'We return with a formal letter from the faculty to the principal and share a one-page summary of our observations, strengths first (5S, Gerak Lagu, Sekolah Budaya), then the two concerns. We also check whether the Dinas Pendidikan needs to be informed, since this is a state school.'},
+    {w:'Wk −3',c:'var(--sun)',t:'Rembug (co-design meeting)',d:'We present the design to all 8 teachers in 15 minutes and ask “What fits your day? What doesn’t?” We adjust it together, so the school owns it and we only support.'},
+    {w:'Wk −2',c:'var(--mint)',t:'Agreements and consent',d:'Written approval from the principal and teacher consent. Parents get an informed-consent letter, and children give verbal assent. Data is coded, not named, and kept confidential.'},
+    {w:'Wk −2 to −1',c:'var(--sky)',t:'Parent introduction',d:'We use the existing Parent–Teacher Conference (with the school psychologist): a 15-minute briefing plus a one-page leaflet, then a WhatsApp group. We stress that Layang Misi takes 5 minutes, costs nothing, and has no grades.'},
+    {w:'Wk −1',c:'#B9A8FF',t:'Teacher training',d:'Two sessions of 60–90 minutes. Session 1 covers Swara Rasa and Pamitan Becik with role-play. Session 2 covers Panggonan Tenang and Layang Misi. The script card goes on the wall.'},
+    {w:'Wk 0',c:'var(--grape)',t:'Pre-test',d:'Baseline measurement of every child with the three instruments.'}];
+  var tlI=0,tl=document.getElementById('tl'),td=document.getElementById('tdetail');
+  function renderTL(){tl.innerHTML=TL.map(function(s,i){return '<button type="button" class="tstep" aria-pressed="'+(i===tlI)+'" data-tl="'+i+'"><span class="pin" style="background:'+s.c+';color:'+(i===5?'#fff':'#2B2A4C')+'">'+(i+1)+'</span><small style="font-weight:900;color:var(--muted)">'+s.w+'</small><b>'+s.t+'</b></button>';}).join('');
+    td.innerHTML='<h3>'+TL[tlI].w+' · '+TL[tlI].t+'</h3><p style="color:var(--muted)">'+TL[tlI].d+'</p>';}
+  tl.addEventListener('click',function(e){var b=e.target.closest('[data-tl]');if(!b)return;tlI=+b.getAttribute('data-tl');renderTL();});
+  renderTL();
+
+  /* ---------- obstacles ---------- */
+  var OB=[['Teachers forget because they are busy','Attach each tradition to an existing routine: Swara Rasa after yel-yel, Pamitan Becik before going home, Layang Misi every Friday.'],
+          ['School events take up the time','Do a mini version (a one-sentence Pamitan Becik); the other traditions continue the next day.'],
+          ['A teacher is absent and the substitute doesn’t know the traditions','The script card on the wall lets any teacher follow along.'],
+          ['Not all teachers run the traditions the same way','A 5-minute check-in during the teachers’ meeting that already happens: “What went well this week, what was hard?”']];
+  document.getElementById('obs').innerHTML=OB.map(function(o){return '<button type="button" class="ob" aria-pressed="false"><span class="in"><span class="fc"><small style="color:var(--coral-deep)">Obstacle</small><b>'+o[0]+'</b><span class="hint">Tap for the fix ↻</span></span><span class="bc"><small style="color:var(--mint-deep)">Simple solution</small><span style="font-size:14.5px">'+o[1]+'</span></span></span></button>';}).join('');
+  document.querySelectorAll('.ob').forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');});});
+
+  /* ---------- instruments ---------- */
+  var IN=[
+    {n:'1. Emotion & expression recognition test',h:'<h3>Emotion &amp; expression recognition test</h3><p style="color:var(--muted)">Measures children’s ability to recognise, understand, and name their emotions (the target of Swara Rasa). A trained observer assesses one child at a time in about 10 minutes.</p><div class="score"><div><b>0–16</b><strong>Recognition (knowledge)</strong><p class="mu" style="font-size:14px;color:var(--muted)">Four feeling cards (happy, sad, angry, scared). Ask “Iki rasane piye?” (naming) and “Endi sing nesu?” (pointing). 2 = correct, 1 = same type (e.g. sad for angry), 0 = wrong.</p></div><div><b>0–8</b><strong>Situations</strong><p style="font-size:14px;color:var(--muted)">Four short picture stories (ice cream, lost toy, tower knocked down, bad dream). Ask “Piye rasane bocah iki?” and the child picks a card. Same scoring.</p></div><div><b>0–4</b><strong>Response</strong><p style="font-size:14px;color:var(--muted)">Two picture stories (losing a turn, a sad friend). Ask “Kowe arep ngapa?” 0 = hit/grab/shout, 1 = cry/walk away/silent, 2 = names the feeling, asks nicely, tells an adult, or comforts.</p></div></div><p style="margin-top:12px"><b>Indicator:</b> the post-test score is higher than the pre-test score.</p><p class="src">Adapted from the Affect Knowledge Test (Denham, 1986; Machado, Veríssimo, &amp; Denham, 2012) and the Challenging Situations Task-Revised (Denham Lab, George Mason University).</p>'},
+    {n:'2. Behavioural observation checklist',h:'<h3>Behavioural observation checklist</h3><p style="color:var(--muted)">Trained observers record children’s behaviour during classroom activities, recess, transitions, and emotionally challenging situations, with the same observation duration and comparable situations before and after. They also record the frequency of aggressive incidents (hitting or pushing friends, shouting when frustrated). The teacher’s weekly incident tally and calm-down log are only for monitoring during the programme, not part of the pre/post score.</p><ol class="ilist"><li>Names or mentions their feelings when upset (nesu)</li><li>Expresses anger verbally rather than physically</li><li>Accepts adult support when emotionally distressed</li><li>Uses breathing or calming strategies</li><li>Returns to the activity after becoming upset</li><li>Controls impulses when frustrated (nesu)</li><li>Avoids hitting or pushing friends</li><li>Avoids taking friends’ toys</li><li>Waits patiently for their turn</li><li>Shares or helps friends</li></ol><div class="scale"><span>0 = Never demonstrates the behaviour</span><span>1 = With the assistance of an adult</span><span>2 = With an occasional reminder</span><span>3 = Independently (and consistently)</span></div><p class="src">Based on the Minnesota Preschool Affect Checklist–Revised/Shortened (MPAC-R/S) and the Emotion Regulation Scoring System (ERSS).</p>'},
+    {n:'3. Parent & teacher questionnaire',h:'<h3>Parent &amp; teacher questionnaire</h3><p style="color:var(--muted)">Determines whether students improve their emotional regulation outside the intervention activities, especially at home. Given to parents after the programme socialisation and filled in by teachers too. Both ratings are cross-checked to limit bias.</p><ol class="ilist"><li>My child can identify and openly express their feelings</li><li>My child uses words to express their anger instead of doing it by action</li><li>My child can calm themselves when feeling angry (with adult assistance)</li><li>My child attempts to calm themselves independently</li><li>My child can wait patiently</li><li>My child shares their toys with their siblings or friends</li><li>My child shows concern when someone is upset</li><li>My child can explain what makes them angry (nesu) or sad</li></ol><div class="scale"><span>Rates the past 2 weeks</span><span>1 = Never</span><span>2 = Rarely</span><span>3 = Sometimes</span><span>4 = Often</span><span>5 = Always</span></div>'}];
+  var iI=0,it=document.getElementById('itabs'),ip=document.getElementById('ipanel');
+  function renderIn(){it.innerHTML=IN.map(function(x,i){return '<button type="button" role="tab" aria-selected="'+(i===iI)+'" data-in="'+i+'">'+x.n+'</button>';}).join('');ip.innerHTML=IN[iI].h;}
+  it.addEventListener('click',function(e){var b=e.target.closest('[data-in]');if(!b)return;iI=+b.getAttribute('data-in');renderIn();});
+  renderIn();
+
+  /* ---------- rail, progress, reveal ---------- */
+  var secs=[].slice.call(document.querySelectorAll('main > section'));
+  var rail=document.getElementById('rail');
+  rail.innerHTML=secs.map(function(s){return '<a href="#'+s.id+'"><span>'+s.getAttribute('data-title')+'</span><i></i></a>';}).join('');
+  var links=[].slice.call(rail.querySelectorAll('a')),cur=0,prog=document.getElementById('progress');
+  function onScroll(){var y=window.scrollY,h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?y/h*100:0)+'%';
+    var c=0;secs.forEach(function(s,i){if(s.getBoundingClientRect().top<innerHeight*.4)c=i;});cur=c;links.forEach(function(a,i){a.setAttribute('aria-current',String(i===c));});
+    document.getElementById('pCount').textContent=(c+1)+' / '+secs.length;}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  if('IntersectionObserver' in window&&!reduce){
+    document.documentElement.classList.add('anim');
+    var io=new IntersectionObserver(function(es){var k=0;es.forEach(function(en){var el=en.target;if(en.isIntersecting){el.style.transitionDelay=(k++*90)+'ms';el.classList.remove('up');el.classList.add('in');}else{el.style.transitionDelay='0ms';el.classList.remove('in');if(en.boundingClientRect.top<0)el.classList.add('up');else el.classList.remove('up');}});},{threshold:.1,rootMargin:'-5% 0px -5% 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  }
+
+  /* ---------- presentation mode ---------- */
+  var pb=document.getElementById('presentBtn');
+  function goSec(i){i=Math.max(0,Math.min(secs.length-1,i));secs[i].scrollIntoView({behavior:reduce?'auto':'smooth'});}
+  function setPresent(on){document.body.classList.toggle('present',on);pb.setAttribute('aria-pressed',String(on));if(on){goSec(cur);try{document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(function(){});}catch(e){}}else{try{document.fullscreenElement&&document.exitFullscreen();}catch(e){}}}
+  pb.addEventListener('click',function(){setPresent(!document.body.classList.contains('present'));});
+  document.getElementById('pPrev').addEventListener('click',function(){goSec(cur-1);});
+  document.getElementById('pNext').addEventListener('click',function(){goSec(cur+1);});
+  document.getElementById('pExit').addEventListener('click',function(){setPresent(false);});
+  addEventListener('keydown',function(e){
+    if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
+    if(e.key==='ArrowRight'||e.key==='PageDown'){if(document.body.classList.contains('present')||e.key==='PageDown'){e.preventDefault();goSec(cur+1);}}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){if(document.body.classList.contains('present')||e.key==='PageUp'){e.preventDefault();goSec(cur-1);}}
+    else if(e.key==='Escape'&&document.body.classList.contains('present'))setPresent(false);
+  });
+
+  /* ---------- playful cursor ---------- */
+  var blobs=[].slice.call(document.querySelectorAll('.blob'));
+  blobs.forEach(function(b){b.addEventListener('pointerenter',function(){b.classList.remove('boing');void b.offsetWidth;b.classList.add('boing');});});
+  setInterval(function(){if(reduce)return;var b=blobs[Math.floor(Math.random()*blobs.length)];b.classList.add('blink');setTimeout(function(){b.classList.remove('blink');},180);},1700);
+  var vil=document.querySelector('.village');
+  var FL=[],SH=['<svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 16.9 6.1 20l1.2-6.5L2.5 8.9l6.6-.9z" fill="currentColor"/></svg>','<svg viewBox="0 0 24 24" width="100%" height="100%"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg>','<svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z" fill="currentColor"/></svg>','<svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M3 15c3-6 6 6 9 0s6 6 9 0" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>'];
+  var COL=['#FF8A65','#3FBFA0','#FFC93C','#5AA9F2','#B9A8FF'],SP=[[3,12],[94,8],[6,78],[90,70],[48,4],[22,92],[72,90]];
+  if(!reduce){secs.forEach(function(s,si){if(s.classList.contains('dark'))return;var lay=document.createElement('div');lay.className='fl-layer';lay.setAttribute('aria-hidden','true');
+    SP.forEach(function(p,k){if((k+si)%3===0)return;var el=document.createElement('span');el.className='fl';var z=16+((k*7+si*5)%20);el.style.cssText='left:'+p[0]+'%;top:'+p[1]+'%;width:'+z+'px;height:'+z+'px;color:'+COL[(k+si)%COL.length];el.innerHTML=SH[(k+si)%SH.length];lay.appendChild(el);FL.push({el:el,x:0,y:0,vx:0,vy:0,r:0,vr:0});});
+    s.insertBefore(lay,s.firstChild);});}
+  var mx=-9999,my=-9999,run=false,last=0;
+  function tick(){var act=false;FL.forEach(function(f){var r=f.el.getBoundingClientRect(),px=r.left+r.width/2,py=r.top+r.height/2,dx=px-mx,dy=py-my,d=Math.hypot(dx,dy);
+    if(d<120&&d>.1){var F=(120-d)/120*2.4;f.vx+=dx/d*F;f.vy+=dy/d*F;f.vr+=(dx>0?1:-1)*F*2;}
+    f.vx+=-f.x*.04;f.vy+=-f.y*.04;f.vr+=-f.r*.04;f.vx*=.86;f.vy*=.86;f.vr*=.86;f.x+=f.vx;f.y+=f.vy;f.r+=f.vr;
+    if(Math.abs(f.x)>.3||Math.abs(f.y)>.3||Math.abs(f.vx)>.05)act=true;f.el.style.transform='translate('+f.x.toFixed(1)+'px,'+f.y.toFixed(1)+'px) rotate('+f.r.toFixed(1)+'deg)';});
+    if(act||Date.now()-last<200)requestAnimationFrame(tick);else run=false;}
+  if(!reduce){
+    addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY;last=Date.now();
+      blobs.forEach(function(b){b.querySelectorAll('.e b').forEach(function(p){var r=p.parentNode.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,a=Math.atan2(my-cy,mx-cx),dd=Math.min(r.width*.22,Math.hypot(mx-cx,my-cy)/12);p.style.transform='translate('+Math.cos(a)*dd+'px,'+Math.sin(a)*dd+'px)';});});
+      if(!run&&FL.length){run=true;requestAnimationFrame(tick);}},{passive:true});
+    if(vil){vil.addEventListener('pointermove',function(e){var r=vil.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;vil.querySelectorAll('[data-depth]').forEach(function(el){var d=+el.getAttribute('data-depth');el.style.translate=(x*d)+'px '+(y*d)+'px';});});vil.addEventListener('pointerleave',function(){vil.querySelectorAll('[data-depth]').forEach(function(el){el.style.translate='0 0';});});}
+    document.querySelectorAll('.card').forEach(function(el){el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5;el.style.rotate=(x*3).toFixed(2)+'deg';el.style.translate='0 -5px';});el.addEventListener('pointerleave',function(){el.style.rotate='';el.style.translate='';});});
+  }
+})();
+</script>
+</body>
+</html>
