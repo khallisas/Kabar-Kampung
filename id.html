@@ -588,12 +588,12 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
         <span class="dotc c1" data-depth="14" aria-hidden="true"></span><span class="dotc c2" data-depth="24" aria-hidden="true"></span><span class="dotc c3" data-depth="30" aria-hidden="true"></span><span class="dotc c4" data-depth="22" aria-hidden="true"></span><span class="dotc c5" data-depth="44" aria-hidden="true"></span><span class="dotc c6" data-depth="38" aria-hidden="true"></span>
         <div class="fc fc-notif float" data-depth="12">
           <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC93C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-          <div><div class="k">Kabar Kampung · Jumat</div><b>Kabar Fai minggu ini sudah tiba</b><p>2 pujian dari teman, dan 1 misi baru.</p></div>
+          <div><div class="k">Kabar Kampung · Jumat</div><b>Kabar Nafa minggu ini sudah tiba</b><p>2 pujian dari teman, dan 1 misi baru.</p></div>
         </div>
         <div class="fc fc-time float d3" data-depth="26">14.00 · bel pulang</div>
         <div class="fc fc-main float d2" data-depth="8">
           <div class="k">Belajar menenangkan diri</div>
-          <h4>Fai cukup diingatkan “tiup lilin dhisik”</h4>
+          <h4>Nafa cukup diingatkan “tiup lilin dhisik”</h4>
           <div class="mini-steps"><div class="on"><i></i><span>Dipandu</span></div><div class="on here"><i></i><span>Diingatkan</span></div><div><i></i><span>Sendiri</span></div></div>
           <div class="row"><span class="chip">Seneng</span><span class="chip">Sedih</span><span class="chip">Nesu</span><span class="chip dash">Wedi</span></div>
         </div>
@@ -831,8 +831,8 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
 <script>
 (function(){
   /* ---------- data ---------- */
-  var KIDS=['Fai','Raka','Sekar','Bima','Laras','Dimas'];
-  var AV={Fai:'#FFC93C',Raka:'#9FD0FA',Sekar:'#FFB59E',Bima:'#9FE0CC',Laras:'#D2C4FF',Dimas:'#FFE08A'};
+  var KIDS=['Nafa','Raka','Sekar','Bima','Laras','Dimas'];
+  var AV={Nafa:'#FFC93C',Raka:'#9FD0FA',Sekar:'#FFB59E',Bima:'#9FE0CC',Laras:'#D2C4FF',Dimas:'#FFE08A'};
   var FEEL=['Seneng','Sedih','Nesu','Wedi'];
   var TEN=['Dipandu guru','Cukup diingatkan','Pergi sendiri'];
   var PRAISE={'Nunggu giliran':'Aku seneng amarga mau kowe ngenteni giliran.','Mbantu kanca':'Aku seneng amarga mau kowe mbantu aku.','Berbagi':'Aku seneng amarga mau kowe gelem bagi dolanan.','Ngajak dolanan':'Aku seneng amarga mau kowe ngajak aku dolanan.'};
@@ -847,24 +847,24 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
     misi:{name:'Layang Misi',sub:'Kartu kembali',q:'Bintang di kartu',opts:['0 bintang','1 bintang','2 bintang','3 bintang']}
   };
   function seed(){return{
-    Fai:{feel:['Seneng','Sedih','Nesu'],tenang:['Dipandu guru','Cukup diingatkan','Cukup diingatkan'],praise:[{from:'Raka',day:'Senin',t:PRAISE['Nunggu giliran']},{from:'Sekar',day:'Rabu',t:'Aku seneng amarga mau kowe mbantu beresin balok.'}],stars:null,moments:6,story:null,inc:0},
+    Nafa:{feel:['Seneng','Sedih','Nesu'],tenang:['Dipandu guru','Cukup diingatkan','Cukup diingatkan'],praise:[{from:'Raka',day:'Senin',t:PRAISE['Nunggu giliran']},{from:'Sekar',day:'Rabu',t:'Aku seneng amarga mau kowe mbantu beresin balok.'}],stars:null,moments:6,story:null,inc:0},
     Raka:{feel:['Seneng','Nesu'],tenang:['Dipandu guru','Dipandu guru'],praise:[{from:'Bima',day:'Selasa',t:PRAISE['Ngajak dolanan']}],stars:3,moments:4,story:null,inc:1},
-    Sekar:{feel:['Seneng','Sedih','Wedi'],tenang:['Pergi sendiri'],praise:[{from:'Fai',day:'Senin',t:PRAISE['Berbagi']}],stars:2,moments:4,story:null,inc:0},
+    Sekar:{feel:['Seneng','Sedih','Wedi'],tenang:['Pergi sendiri'],praise:[{from:'Nafa',day:'Senin',t:PRAISE['Berbagi']}],stars:2,moments:4,story:null,inc:0},
     Bima:{feel:['Nesu'],tenang:['Dipandu guru','Cukup diingatkan'],praise:[{from:'Laras',day:'Rabu',t:PRAISE['Nunggu giliran']}],stars:null,moments:3,story:null,inc:1},
     Laras:{feel:['Seneng','Sedih'],tenang:[],praise:[{from:'Dimas',day:'Selasa',t:PRAISE['Mbantu kanca']}],stars:1,moments:2,story:null,inc:0},
     Dimas:{feel:['Seneng'],tenang:['Dipandu guru'],praise:[],stars:null,moments:1,story:null,inc:0}
   };}
   var SCEN=[
-    {t:'Catat Swara Rasa untuk Fai',r:'guru',s:'Guru · Catat'},
-    {t:'Catat pujian Pamitan Becik untuk Fai',r:'guru',s:'Guru · Catat'},
+    {t:'Catat Swara Rasa untuk Nafa',r:'guru',s:'Guru · Catat'},
+    {t:'Catat pujian Pamitan Becik untuk Nafa',r:'guru',s:'Guru · Catat'},
     {t:'Catat insiden Bima secara terpisah',r:'guru',s:'Guru · Catat'},
-    {t:'Buka Kabar Kampung keluarga Fai',r:'ortu',s:'Orang tua · Kabar'},
+    {t:'Buka Kabar Kampung keluarga Nafa',r:'ortu',s:'Orang tua · Kabar'},
     {t:'Kirim cerita dari rumah',r:'ortu',s:'Orang tua · Kabar'},
     {t:'Lihat rekap mingguan kelas',r:'tim',s:'Tim · Rekap'}
   ];
   var S,timer=null;
-  function reset(){S={data:seed(),role:'guru',gtab:'catat',t:{child:'Fai',moment:null,option:null},fam:'Fai',today:6,toast:'',newPraise:null,done:[false,false,false,false,false,false],hint:null,log:[
-    {k:'Sekar',txt:'Panggonan Tenang · Pergi sendiri',when:'09.10'},{k:'Raka',txt:'Swara Rasa · Nesu',when:'08.40'},{k:'Fai',txt:'Swara Rasa · Seneng',when:'07.45'}]};}
+  function reset(){S={data:seed(),role:'guru',gtab:'catat',t:{child:'Nafa',moment:null,option:null},fam:'Nafa',today:6,toast:'',newPraise:null,done:[false,false,false,false,false,false],hint:null,log:[
+    {k:'Sekar',txt:'Panggonan Tenang · Pergi sendiri',when:'09.10'},{k:'Raka',txt:'Swara Rasa · Nesu',when:'08.40'},{k:'Nafa',txt:'Swara Rasa · Seneng',when:'07.45'}]};}
   reset();
 
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -918,10 +918,10 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   function firstUndone(){for(var i=0;i<S.done.length;i++)if(!S.done[i])return i;return -1;}
   function startStep(i){
     if(i<0)return;S.hint=i;
-    if(i===0){S.role='guru';S.gtab='catat';S.t={child:'Fai',moment:'swara',option:null};}
-    else if(i===1){S.role='guru';S.gtab='catat';S.t={child:'Fai',moment:'becik',option:null};}
+    if(i===0){S.role='guru';S.gtab='catat';S.t={child:'Nafa',moment:'swara',option:null};}
+    else if(i===1){S.role='guru';S.gtab='catat';S.t={child:'Nafa',moment:'becik',option:null};}
     else if(i===2){S.role='guru';S.gtab='catat';S.t={child:'Bima',moment:null,option:null};}
-    else if(i===3){S.role='ortu';S.fam='Fai';markDone(3);}
+    else if(i===3){S.role='ortu';S.fam='Nafa';markDone(3);}
     else if(i===4){S.role='ortu';}
     else if(i===5){S.role='tim';markDone(5);}
   }
@@ -1026,9 +1026,9 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
     var sb=scr().querySelector('.save'),mom0=t.moment;if(sb)var sr=sb.getBoundingClientRect();
     sfx(mom0==='becik'?'yay':'good');if(mom0==='becik'&&sr)confetti(sr.left+sr.width/2,sr.top);
     var d=S.data[t.child];
-    if(t.moment==='swara'){sel.forEach(function(f){if(d.feel.indexOf(f)<0)d.feel.push(f);});if(t.child==='Fai')markDone(0);}
+    if(t.moment==='swara'){sel.forEach(function(f){if(d.feel.indexOf(f)<0)d.feel.push(f);});if(t.child==='Nafa')markDone(0);}
     else if(t.moment==='tenang'){d.tenang.push(t.option);}
-    else if(t.moment==='becik'){d.praise.push({day:'Hari ini',t:t.option===CUSTOM?sel[0]:PRAISE[t.option]});S.newPraise=t.child;if(t.child==='Fai')markDone(1);}
+    else if(t.moment==='becik'){d.praise.push({day:'Hari ini',t:t.option===CUSTOM?sel[0]:PRAISE[t.option]});S.newPraise=t.child;if(t.child==='Nafa')markDone(1);}
     else if(t.moment==='misi'){d.stars=parseInt(t.option,10);}
     d.moments++;S.today++;S.log.unshift({k:t.child,txt:MOM[t.moment].name+' · '+txt,when:nowTime()});
     var msg='Tersimpan: '+t.child+', '+MOM[t.moment].name+' ('+txt+'). Masuk ke Kabar Kampung keluarga '+t.child+'.';
@@ -1038,7 +1038,7 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
 
   document.getElementById('pageProto').addEventListener('click',function(e){
     var b=e.target.closest('button');if(!b)return;
-    if(b.hasAttribute('data-role')){S.role=b.getAttribute('data-role');S.hint=null;if(S.role==='tim')markDone(5);if(S.role==='ortu'&&S.fam==='Fai')markDone(3);renderProto();return;}
+    if(b.hasAttribute('data-role')){S.role=b.getAttribute('data-role');S.hint=null;if(S.role==='tim')markDone(5);if(S.role==='ortu'&&S.fam==='Nafa')markDone(3);renderProto();return;}
     if(b.hasAttribute('data-step')){startStep(parseInt(b.getAttribute('data-step'),10));renderProto();return;}
     if(b.hasAttribute('data-gtab')){S.gtab=b.getAttribute('data-gtab');renderPhone();return;}
     handleAct(b);
@@ -1058,7 +1058,7 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
     if(sb)sb.setAttribute('aria-disabled',String(!ok));
     if(hn)hn.textContent=ok?S.t.child+' · '+MOM[S.t.moment].name+' · '+optText(S.t):'Pilih anak, momen, lalu detailnya';
   });
-  document.getElementById('famSel').addEventListener('change',function(e){S.fam=e.target.value;S.newPraise=null;if(S.fam==='Fai')markDone(3);renderProto();});
+  document.getElementById('famSel').addEventListener('change',function(e){S.fam=e.target.value;S.newPraise=null;if(S.fam==='Nafa')markDone(3);renderProto();});
   document.getElementById('resetDemo').addEventListener('click',function(){clearTimeout(timer);reset();renderProto();});
 
   /* ================= COBA BEBAS: aplikasi yang bisa dipakai sungguhan ================= */
@@ -1193,20 +1193,20 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
     var b=e.target.closest('button');if(!b)return;
     var ap=b.getAttribute('data-app'),v=b.getAttribute('data-v');
     if(!ap){if(b.hasAttribute('data-act'))handleAct(b);return;}
-    if(ap==='role'){A.toast='';clearTimeout(appTimer);A.role=v;S.hint=null;if(v==='ortu'&&!S.fam)S.fam='Fai';openTab(v==='guru'?'home':'kabar');sfx('chime');}
+    if(ap==='role'){A.toast='';clearTimeout(appTimer);A.role=v;S.hint=null;if(v==='ortu'&&!S.fam)S.fam='Nafa';openTab(v==='guru'?'home':'kabar');sfx('chime');}
     else if(ap==='tab'){if(!A.role)return;openTab(v);}
     else if(ap==='back'){back();}
     else if(ap==='hometab'){if(A.role)openTab(TABS[A.role][0][0]);}
     else if(ap==='logout'){if(!A.role)return;A.role=null;A.stack=[];A.tab=null;A.anim='fade';renderApp(false);appToast(tx('loggedOut'));}
     else if(ap==='child'){push({id:'child',k:v});}
-    else if(ap==='quick'){S.t={child:S.t.child||'Fai',moment:v,option:null,multi:[],custom:''};openTab('catat');}
+    else if(ap==='quick'){S.t={child:S.t.child||'Nafa',moment:v,option:null,multi:[],custom:''};openTab('catat');}
     else if(ap==='logfor'){S.t={child:v,moment:null,option:null,multi:[],custom:''};openTab('catat');}
     else if(ap==='tried'){if(A.tries>=3)return;A.tries++;sfx(A.tries===3?'yay':'good');confettiAt(b);appToast(tx('triedToast'));}
     else if(ap==='notif'){A.notif=!A.notif;renderApp(true);}
     else if(ap==='paper'){A.paper=!A.paper;renderApp(true);if(A.paper)appToast(tx('paperOn'));}
   });
   document.getElementById('pageApp').addEventListener('change',function(e){if(e.target.id==='appFam'){S.fam=e.target.value;S.newPraise=null;A.tries=0;renderApp(true);}});
-  document.getElementById('appReset').addEventListener('click',function(){var r=A.role,t=A.tab;reset();S.fam='Fai';appReset();renderApp(false);});
+  document.getElementById('appReset').addEventListener('click',function(){var r=A.role,t=A.tab;reset();S.fam='Nafa';appReset();renderApp(false);});
 
   /* ================= COBA PRE & POST TEST ================= */
   var T2={id:{
@@ -1270,7 +1270,7 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   function tesHead(){
     var P=EV[EV.phase],h='<div class="tbar"><div class="phase" role="group" aria-label="'+t2('filling')+'"><span class="lbl">'+t2('filling')+'</span>';
     ['pre','post'].forEach(function(p){h+='<button type="button" data-ev="phase" data-val="'+p+'" aria-pressed="'+(EV.phase===p)+'">'+t2(p)+'</button>';});
-    h+='</div><div class="whoc" style="padding:8px 12px"><span class="av" style="background:'+AV.Fai+';width:36px;height:36px;font-size:17px">F</span><div><small>'+t2('child')+'</small><b style="font-size:16px">Fai</b></div><span class="tag">'+(LANG==='en'?'Sample':'Data contoh')+'</span></div></div>';
+    h+='</div><div class="whoc" style="padding:8px 12px"><span class="av" style="background:'+AV.Nafa+';width:36px;height:36px;font-size:17px">N</span><div><small>'+t2('child')+'</small><b style="font-size:16px">Nafa</b></div><span class="tag">'+(LANG==='en'?'Sample':'Data contoh')+'</span></div></div>';
     h+='<div class="ttabs" role="tablist">';[['ekt','tabE'],['chk','tabC'],['q','tabQ'],['res','tabR']].forEach(function(t){h+='<button type="button" role="tab" data-ev="tab" data-val="'+t[0]+'" aria-selected="'+(EV.tab===t[0])+'">'+t2(t[1])+'</button>';});h+='</div>';
     h+='<div class="tfill"><button type="button" class="reset" data-ev="fill" data-val="pre">'+t2('fillPre')+'</button><button type="button" class="reset" data-ev="fill" data-val="post">'+t2('fillPost')+'</button><button type="button" class="reset" data-ev="clear">'+t2('clear')+'</button></div>';
     return h;
@@ -1424,7 +1424,7 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
     return '<svg class="art" viewBox="0 0 400 220" aria-hidden="true">'+h+'</svg>';
   }
   var SC=[
-    {s:'Suatu pagi di TK',b:'Ini Fai. Hari ini ia membangun <em>menara tertinggi</em>.',snd:[[380,'pop'],[760,'pop'],[1140,'pop'],[1520,'pop'],[1900,'pop'],[2300,'giggle']]},
+    {s:'Suatu pagi di TK',b:'Ini Nafa. Hari ini ia membangun <em>menara tertinggi</em>.',snd:[[380,'pop'],[760,'pop'],[1140,'pop'],[1520,'pop'],[1900,'pop'],[2300,'giggle']]},
     {s:'Lalu tiba-tiba…',b:'<em>BRUK!</em> Menaranya ambruk.',snd:[[180,'crash'],[900,'boing']]},
     {s:'Usia 4–6 tahun',b:'Rasa <em>nesu</em> sering datang lebih cepat dari kata-katanya.',snd:[[150,'grumble'],[1500,'grumble']]},
     {s:'Swara Rasa',b:'Bu Guru membantu menamai rasanya: <em>“Awakmu nesu ya?”</em>',snd:[[300,'pop'],[1300,'blip'],[1450,'blip'],[1600,'blip'],[1750,'blip'],[2200,'chime']]},
