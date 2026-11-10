@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kabar Kampung</title>
+<title>Kabar Kampung (English)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -324,6 +324,8 @@ footer{border-top:1.5px solid var(--line);padding:24px 0 40px;font-size:13px;col
 .mom small{font-size:12px;color:var(--muted)}
 .mom[aria-pressed="true"] small{color:#E6E0FF}
 .pills{display:flex;flex-wrap:wrap;gap:8px}
+.qsub{font-family:var(--body);font-size:12px;font-weight:700;color:var(--muted)}
+.pill-own{border-style:dashed !important;display:inline-flex;align-items:center;gap:6px}
 .pill{height:44px;border-radius:22px;padding:0 15px;background:var(--paper);border:2px solid #E8DEC9;font-weight:800;font-size:14px}
 .empty{border:2px dashed var(--line-strong);border-radius:18px;padding:13px;font-size:14px;color:var(--muted)}
 .ghost{align-self:flex-start;display:flex;align-items:center;gap:8px;min-height:44px;padding:0 13px;border-radius:14px;background:transparent;border:1.5px solid #CBBF9F;color:var(--muted);font-size:13px;font-weight:800}
@@ -395,18 +397,18 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
 </head>
 <body>
 
-<nav class="nav" aria-label="Utama">
+<nav class="nav" aria-label="Main">
   <div class="wrap">
-    <button type="button" class="logo" data-route="beranda" aria-label="Kabar Kampung, ke beranda">
+    <button type="button" class="logo" data-route="beranda" aria-label="Kabar Kampung, go to home">
       <span class="logo-mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC93C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
-      <span><b>KABAR KAMPUNG</b><small>Kampung Rukun Cilik · TK Negeri 2 Yogyakarta</small></span>
+      <span><b>KABAR KAMPUNG</b><small>Kampung Rukun Cilik · TK Negeri 2 Yogyakarta kindergarten</small></span>
     </button>
     <div class="nav-links">
-      <button type="button" class="lnk" data-route="beranda" id="navHome">Beranda</button>
-      <button type="button" class="lnk" data-route="prototipe" id="navProto">Prototipe</button>
-      <a class="lang" href="en.html" lang="en">English</a>
-      <button type="button" class="sound" id="soundBtn" aria-pressed="true"><span class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></span><span class="off"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg></span><span class="lbl2">Suara nyala</span></button>
-      <button type="button" class="btn btn-primary" data-route="prototipe">Coba prototipe <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button type="button" class="lnk" data-route="beranda" id="navHome">Home</button>
+      <button type="button" class="lnk" data-route="prototipe" id="navProto">Prototype</button>
+      <a class="lang" href="id.html" lang="id">Bahasa Indonesia</a>
+      <button type="button" class="sound" id="soundBtn" aria-pressed="true"><span class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></span><span class="off"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg></span><span class="lbl2">Sound on</span></button>
+      <button type="button" class="btn btn-primary" data-route="prototipe">Try the prototype <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </div>
   </div>
 </nav>
@@ -416,39 +418,39 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   <header class="hero">
     <div class="wrap hero-grid">
       <div class="reveal">
-        <div class="eyebrow">Program intervensi Kampung Rukun Cilik · 2026</div>
-        <h1>Rasa yang <span class="c-a">dinamai</span>, tumbuh jadi <span class="hl">rukun.</span></h1>
-        <p class="lead">Kabar Kampung menghubungkan guru dan orang tua lewat catatan momen kecil di kelas dan rangkuman mingguan yang hangat, supaya yang dipelajari anak di sekolah berlanjut setelah bel pulang.</p>
-        <div class="trad" aria-label="Empat tradisi"><span class="t-swara">Swara Rasa</span><span class="t-tenang">Panggonan Tenang</span><span class="t-becik">Pamitan Becik</span><span class="t-misi">Layang Misi</span></div>
+        <div class="eyebrow">Kampung Rukun Cilik intervention programme · 2026</div>
+        <h1>Feelings that get <span class="c-a">named</span> grow into <span class="hl">harmony.</span></h1>
+        <p class="lead"><b>Kabar Kampung</b> (Javanese for “village news”) connects teachers and parents through quick notes on small classroom moments and a warm weekly summary, so what children learn at school carries on after the home-time bell. It supports <b>Kampung Rukun Cilik</b>, “the little village of harmony”.</p>
+        <div class="trad" aria-label="Four traditions"><span class="t-swara">Swara Rasa · voice of feelings</span><span class="t-tenang">Panggonan Tenang · calm place</span><span class="t-becik">Pamitan Becik · kind goodbye</span><span class="t-misi">Layang Misi · mission letter</span></div>
         <div class="hero-cta">
-          <button type="button" class="btn btn-primary" data-route="prototipe">Coba prototipe <span class="dot" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-          <button type="button" class="btn btn-ghost" id="playStory"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>Putar cerita pembuka, 13 detik</button>
+          <button type="button" class="btn btn-primary" data-route="prototipe">Try the prototype <span class="dot" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+          <button type="button" class="btn btn-ghost" id="playStory"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>Play the opening story, 13 seconds</button>
         </div>
-        <div class="who-for"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2.2 1.3-4 3.5-4.5"/></svg>Untuk guru dan orang tua. Anak tetap belajar tanpa layar.</div>
+        <div class="who-for"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2.2 1.3-4 3.5-4.5"/></svg>For teachers and parents. Children keep learning without screens.</div>
         <p class="who-for" id="soundHint" aria-live="polite"></p>
       </div>
-      <div class="collage" aria-label="Contoh tampilan Kabar Kampung">
+      <div class="collage" aria-label="Example Kabar Kampung screens">
         <span class="dotc c1" data-depth="14" aria-hidden="true"></span><span class="dotc c2" data-depth="24" aria-hidden="true"></span><span class="dotc c3" data-depth="30" aria-hidden="true"></span><span class="dotc c4" data-depth="22" aria-hidden="true"></span><span class="dotc c5" data-depth="44" aria-hidden="true"></span><span class="dotc c6" data-depth="38" aria-hidden="true"></span>
         <div class="fc fc-notif float" data-depth="12">
           <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC93C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-          <div><div class="k">Kabar Kampung · Jumat</div><b>Kabar Fai minggu ini sudah tiba</b><p>2 pujian dari teman, dan 1 misi baru.</p></div>
+          <div><div class="k">Kabar Kampung · Friday</div><b>Fai’s news for this week is here</b><p>2 compliments from friends and 1 new mission.</p></div>
         </div>
-        <div class="fc fc-time float d3" data-depth="26">14.00 · bel pulang</div>
+        <div class="fc fc-time float d3" data-depth="26">2 pm · home time</div>
         <div class="fc fc-main float d2" data-depth="8">
-          <div class="k">Belajar menenangkan diri</div>
-          <h4>Fai cukup diingatkan “tiup lilin dhisik”</h4>
-          <div class="mini-steps"><div class="on"><i></i><span>Dipandu</span></div><div class="on here"><i></i><span>Diingatkan</span></div><div><i></i><span>Sendiri</span></div></div>
+          <div class="k">Learning to calm down</div>
+          <h4>Fai only needed a reminder: “tiup lilin dhisik”<span class="gl">“blow out the candle first”</span></h4>
+          <div class="mini-steps"><div class="on"><i></i><span>Guided</span></div><div class="on here"><i></i><span>Reminded</span></div><div><i></i><span>On own</span></div></div>
           <div class="row"><span class="chip">Seneng</span><span class="chip">Sedih</span><span class="chip">Nesu</span><span class="chip dash">Wedi</span></div>
         </div>
         <div class="fc fc-praise float d3" data-depth="18">
-          <div class="k">Pujian dari teman</div>
-          <p>“Aku seneng amarga mau kowe ngenteni giliran.”</p>
-          <small>Raka · Pamitan Becik</small>
+          <div class="k">Praise from a friend</div>
+          <p>“Aku seneng amarga mau kowe ngenteni giliran.”</p><span class="tr">“I liked it today when you waited your turn.”</span>
+          <small>From a friend · Pamitan Becik (kind goodbye)</small>
         </div>
         <div class="fc fc-misi float" data-depth="16">
           <div class="k">Layang Misi</div>
-          <b>Memimpin doa makan</b>
-          <div class="stars" aria-label="2 dari 3 bintang">
+          <b>Lead the mealtime prayer</b>
+          <div class="stars" aria-label="2 of 3 stars">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFC93C" stroke="#6B4A1F" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFC93C" stroke="#6B4A1F" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B4A1F" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>
@@ -456,7 +458,7 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
         </div>
       </div>
     </div>
-    <div class="wrap strip" aria-label="Empat tradisi">
+    <div class="wrap strip" aria-label="Four traditions">
       <button type="button" data-jump="hari"><span class="t-swara">01</span>Swara Rasa</button>
       <button type="button" data-jump="hari"><span class="t-tenang">02</span>Panggonan Tenang</button>
       <button type="button" data-jump="hari"><span class="t-becik">03</span>Pamitan Becik</button>
@@ -468,15 +470,15 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   <section class="band" id="hari" style="padding-top:50px">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><div class="eyebrow">Jalan-jalan di kampung</div><h2>Seminggu di Kampung Rukun Cilik.</h2></div>
-        <p>Setiap tradisi menempel pada rutinitas yang sudah ada di TK. Kabar Kampung hanya mencatat dan mengantarkannya ke rumah. Pilih satu persinggahan untuk mencobanya.</p>
+        <div><div class="eyebrow">A walk through the village</div><h2>A week in Kampung Rukun Cilik.</h2></div>
+        <p>Each tradition hooks onto a routine the kindergarten already has. Kabar Kampung simply records it and carries it home. Pick a stop to try it out.</p>
       </div>
       <div class="road">
-        <div class="stop reveal"><span class="pin" style="background:var(--coral)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H9l-5 4z"/></svg></span><div class="stair"><div class="t">07.30</div><div class="w t-swara">Setelah yel-yel</div><h3>Swara Rasa</h3><p>Guru menyebut perasaannya sendiri dengan suara keras, lalu membantu anak menamai rasanya.</p><button type="button" class="go" data-goto="1">Catat sebagai guru →</button></div></div>
-        <div class="stop reveal"><span class="pin" style="background:var(--mint)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 3 4.5 3 6.5a3 3 0 0 1-6 0C9 7.5 10 6 12 3z"/><path d="M9 14h6v7H9z"/></svg></span><div class="stair"><div class="t">Saat nesu</div><div class="w t-tenang">Kapan saja</div><h3>Panggonan Tenang</h3><p>Anak menenangkan diri bersama guru. Tahapnya dicatat: dipandu, diingatkan, atau sendiri.</p><button type="button" class="go" data-goto="1">Catat tahapnya →</button></div></div>
-        <div class="stop reveal"><span class="pin" style="background:var(--sun)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></span><div class="stair"><div class="t">Sebelum pulang</div><div class="w t-becik">Tiap hari</div><h3>Pamitan Becik</h3><p>Setiap anak memuji satu teman. Pujian itu ikut terkirim ke keluarga yang dipuji.</p><button type="button" class="go" data-goto="2">Catat pujian →</button></div></div>
-        <div class="stop reveal"><span class="pin" style="background:var(--sky)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div class="stair"><div class="t">Jumat</div><div class="w t-misi">Tiap minggu</div><h3>Kabar Kampung tiba</h3><p>Keluarga menerima rangkuman minggu ini dan kartu Layang Misi di tas anak.</p><button type="button" class="go" data-goto="4">Buka sebagai orang tua →</button></div></div>
-        <div class="stop reveal"><span class="pin" style="background:#D2C4FF" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span><div class="stair"><div class="t">Akhir pekan</div><div class="w t-misi">Di rumah</div><h3>Misi dan cerita</h3><p>Misi 5 menit bersama siapa pun di rumah. Orang tua bisa membalas dengan cerita singkat.</p><button type="button" class="go" data-goto="5">Kirim cerita →</button></div></div>
+        <div class="stop reveal"><span class="pin" style="background:var(--coral)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H9l-5 4z"/></svg></span><div class="stair"><div class="t">7.30 am</div><div class="w t-swara">After the class chant</div><h3>Swara Rasa<span class="gl">“voice of feelings”</span></h3><p>The teacher says their own feelings out loud, then helps children name theirs.</p><button type="button" class="go" data-goto="1">Log as a teacher →</button></div></div>
+        <div class="stop reveal"><span class="pin" style="background:var(--mint)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 3 4.5 3 6.5a3 3 0 0 1-6 0C9 7.5 10 6 12 3z"/><path d="M9 14h6v7H9z"/></svg></span><div class="stair"><div class="t">When nesu<span class="gl">nesu = angry</span></div><div class="w t-tenang">Any time</div><h3>Panggonan Tenang<span class="gl">“calm place”</span></h3><p>A child calms down together with the teacher. The stage is logged: guided, reminded, or on their own.</p><button type="button" class="go" data-goto="1">Log the stage →</button></div></div>
+        <div class="stop reveal"><span class="pin" style="background:var(--sun)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></span><div class="stair"><div class="t">Before home</div><div class="w t-becik">Every day</div><h3>Pamitan Becik<span class="gl">“kind goodbye”</span></h3><p>Each child praises one friend. The compliment reaches the family, without the giver’s name.</p><button type="button" class="go" data-goto="2">Log a compliment →</button></div></div>
+        <div class="stop reveal"><span class="pin" style="background:var(--sky)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div class="stair"><div class="t">Friday</div><div class="w t-misi">Every week</div><h3>Kabar Kampung arrives<span class="gl">“village news”</span></h3><p>Families get this week’s summary, plus the Layang Misi (mission letter) card in the child’s bag.</p><button type="button" class="go" data-goto="4">Open as a parent →</button></div></div>
+        <div class="stop reveal"><span class="pin" style="background:#D2C4FF" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span><div class="stair"><div class="t">Weekend</div><div class="w t-misi">At home</div><h3>Missions and stories</h3><p>A 5-minute mission with anyone at home. Parents can reply with a short story.</p><button type="button" class="go" data-goto="5">Send a story →</button></div></div>
       </div>
     </div>
   </section>
@@ -485,38 +487,38 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   <section id="peran">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><div class="eyebrow">Siapa melihat apa</div><h2>Anak, guru, dan orang tua.</h2></div>
-        <p>Setiap pihak melihat yang sesuai perannya. Catatan insiden tetap di sekolah, dan tiap keluarga hanya melihat anaknya sendiri.</p>
+        <div><div class="eyebrow">Who sees what</div><h2>Children, teachers, and parents.</h2></div>
+        <p>Everyone sees what fits their role. Incident notes stay at school, and each family only sees their own child.</p>
       </div>
       <div class="roles">
         <div class="role reveal">
           <span class="ic" style="background:var(--mint-soft)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17705A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></span>
-          <h3>Anak</h3><div class="sub">Murid TK, usia 4–6 tahun</div>
-          <ul><li>Memakai topeng rasa dan kartu, bukan layar</li><li>Mewarnai bintang Layang Misi sendiri</li><li>Bercerita di kelas tentang misinya</li></ul>
-          <span class="btn off">Tetap tanpa layar</span>
+          <h3>Children</h3><div class="sub">Kindergarteners aged 4–6</div>
+          <ul><li>Use paper feeling masks and cards, not screens</li><li>Colour in their own Layang Misi stars</li><li>Tell the class about their mission</li></ul>
+          <span class="btn off">Still screen-free</span>
         </div>
         <div class="role reveal">
           <span class="ic" style="background:var(--sky-soft)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D5C9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-          <h3>Guru (pamong)</h3><div class="sub">8 guru kelas</div>
-          <ul><li>Mencatat momen dalam ±10 detik</li><li>Mencatat insiden secara terpisah</li><li>Melihat rekap mingguan untuk rapat 5 menit</li></ul>
-          <button type="button" class="btn btn-primary" data-goto="1">Coba sebagai guru</button>
+          <h3>Teachers (pamong)</h3><div class="sub">8 class teachers · <i>pamong</i> = a guiding mentor</div>
+          <ul><li>Log a moment in about 10 seconds</li><li>Log incidents separately</li><li>Read a weekly recap for a 5-minute meeting</li></ul>
+          <button type="button" class="btn btn-primary" data-goto="1">Try as a teacher</button>
         </div>
         <div class="role reveal">
           <span class="ic" style="background:var(--coral-soft)" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B4421C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>
-          <h3>Orang tua</h3><div class="sub">Atau siapa pun pengasuh di rumah</div>
-          <ul><li>Membaca Kabar Kampung tiap Jumat</li><li>Melanjutkan misi 5 menit di rumah</li><li>Membalas dengan cerita dari rumah</li></ul>
-          <button type="button" class="btn btn-primary" data-goto="4">Coba sebagai orang tua</button>
+          <h3>Parents</h3><div class="sub">Or any caregiver at home</div>
+          <ul><li>Read Kabar Kampung every Friday</li><li>Carry on the 5-minute mission at home</li><li>Reply with a story from home</li></ul>
+          <button type="button" class="btn btn-primary" data-goto="4">Try as a parent</button>
         </div>
       </div>
       <div class="see reveal">
         <table>
-          <caption class="sr">Siapa melihat apa</caption>
-          <thead><tr><th scope="col">Data</th><th scope="col">Guru dan tim</th><th scope="col">Keluarga anak itu</th><th scope="col">Keluarga lain</th></tr></thead>
+          <caption class="sr">Who sees what</caption>
+          <thead><tr><th scope="col">Data</th><th scope="col">Teachers and team</th><th scope="col">That child’s family</th><th scope="col">Other families</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Pujian dari teman</th><td class="y">Ya</td><td class="y">Ya</td><td class="n">Tidak</td></tr>
-            <tr><th scope="row">Tahap menenangkan diri</th><td class="y">Ya</td><td class="y">Ya, sebagai tahap</td><td class="n">Tidak</td></tr>
-            <tr><th scope="row">Catatan insiden</th><td class="y">Ya</td><td class="n">Tidak</td><td class="n">Tidak</td></tr>
-            <tr><th scope="row">Rekap seluruh kelas</th><td class="y">Ya</td><td class="n">Tidak</td><td class="n">Tidak</td></tr>
+            <tr><th scope="row">Praise from friends</th><td class="y">Yes</td><td class="y">Yes</td><td class="n">No</td></tr>
+            <tr><th scope="row">Calming-down stage</th><td class="y">Yes</td><td class="y">Yes, as a stage</td><td class="n">No</td></tr>
+            <tr><th scope="row">Incident notes</th><td class="y">Yes</td><td class="n">No</td><td class="n">No</td></tr>
+            <tr><th scope="row">Whole-class recap</th><td class="y">Yes</td><td class="n">No</td><td class="n">No</td></tr>
           </tbody>
         </table>
       </div>
@@ -526,12 +528,12 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   <section id="tebak" style="padding-top:20px">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><div class="eyebrow">Coba sendiri</div><h2>Bisakah kamu menebak rasanya?</h2></div>
-        <p>Empat cerita pendek ini diadaptasi dari tes pengenalan emosi yang dipakai di pre-test dan post-test. Pilih wajah yang paling cocok untuk tiap cerita.</p>
+        <div><div class="eyebrow">Try it yourself</div><h2>Can you guess the feeling?</h2></div>
+        <p>These four short stories are adapted from the emotion recognition test used before and after the programme. Pick the face that fits each story best. The feelings use the Javanese words the children learn.</p>
       </div>
       <div class="quiz-wrap reveal">
         <div class="quiz" id="quiz"></div>
-        <div class="quiz-foot"><div><span class="score" id="qScore">0</span> <span class="mu">dari 8 poin</span></div><p class="mu" style="max-width:56ch">Penilaian mengikuti instrumen: 2 bila tepat, 1 bila jenis rasanya sama (misalnya sedih untuk nesu), 0 bila keliru.</p><button type="button" class="reset" id="qReset">Ulangi</button></div>
+        <div class="quiz-foot"><div><span class="score" id="qScore">0</span> <span class="mu">out of 8 points</span></div><p class="mu" style="max-width:56ch">Scoring follows the instrument: 2 if exact, 1 if it is the same kind of feeling (for example sad instead of angry), 0 if wrong.</p><button type="button" class="reset" id="qReset">Start again</button></div>
       </div>
     </div>
   </section>
@@ -539,14 +541,14 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   <section class="dark" id="prinsip">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><div class="eyebrow">Janji kami</div><h2>Hangat, bukan menghakimi.</h2></div>
-        <p>Prinsip ini diambil langsung dari rancangan Kampung Rukun Cilik dan dijaga juga di versi digitalnya.</p>
+        <div><div class="eyebrow">Our promise</div><h2>Warm, never judging.</h2></div>
+        <p>These principles come straight from the Kampung Rukun Cilik design and are kept in the digital version too.</p>
       </div>
       <div class="prin">
-        <div class="reveal"><div class="no">01</div><h3>Tanpa nilai dan peringkat.</h3><p>Perkembangan ditampilkan sebagai tahap, bukan skor, dan tidak dibandingkan dengan anak lain.</p></div>
-        <div class="reveal"><div class="no">02</div><h3>Insiden tetap di sekolah.</h3><p>Catatan memukul atau merebut hanya untuk guru dan tim, supaya anak tidak dimarahi dua kali.</p></div>
-        <div class="reveal"><div class="no">03</div><h3>Setiap anak pasti dipuji.</h3><p>Rekap guru menandai anak yang belum dipuji, supaya guru bisa membisikkan petunjuk sebelum Pamitan Becik.</p></div>
-        <div class="reveal"><div class="no">04</div><h3>Ada versi kertas.</h3><p>Keluarga tanpa HP atau kuota menerima Kabar Kampung cetak bersama kartu Layang Misi.</p></div>
+        <div class="reveal"><div class="no">01</div><h3>No grades, no rankings.</h3><p>Progress is shown as a stage, never a score, and never compared with other children.</p></div>
+        <div class="reveal"><div class="no">02</div><h3>Incidents stay at school.</h3><p>Notes about hitting or grabbing are for teachers and the team only, so a child is not told off twice.</p></div>
+        <div class="reveal"><div class="no">03</div><h3>Every child gets praised.</h3><p>The recap flags children nobody has praised yet, so the teacher can whisper a hint before Pamitan Becik.</p></div>
+        <div class="reveal"><div class="no">04</div><h3>There is a paper version.</h3><p>Families without a phone or mobile data get a printed Kabar Kampung with the Layang Misi card.</p></div>
       </div>
     </div>
   </section>
@@ -554,16 +556,16 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   <section id="teori">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><div class="eyebrow">Landasan teori</div><h2>Teori di balik setiap tradisi.</h2></div>
-        <p>Teori yang sama dengan rancangan intervensi. Kabar Kampung tidak menambah teori baru, hanya memperpanjang jangkauannya ke rumah.</p>
+        <div><div class="eyebrow">Theory</div><h2>The ideas behind each tradition.</h2></div>
+        <p>The same theories as the intervention design. Kabar Kampung adds no new theory; it only extends their reach into the home.</p>
       </div>
       <div class="theory">
-        <div class="th reveal"><div class="no">01</div><h3>Process model of emotion regulation</h3><div class="by">James Gross</div><div class="flowx"><span>Situasi</span><i>→</i><span>Perhatian</span><i>→</i><span>Respons</span></div><p>Panggonan Tenang mengubah situasi, memindahkan perhatian, dan menenangkan tubuh.</p></div>
-        <div class="th reveal"><div class="no">02</div><h3>Emotion coaching</h3><div class="by">John Gottman</div><div class="flowx"><span>Sadari</span><i>→</i><span>Namai rasa</span><i>→</i><span>Arahkan</span></div><p>Menamai rasa adalah langkah awal. Swara Rasa melatih guru dan orang tua melakukannya.</p></div>
-        <div class="th reveal"><div class="no">03</div><h3>Social learning</h3><div class="by">Albert Bandura</div><div class="flowx"><span>Orang dewasa mencontohkan</span><i>→</i><span>Anak meniru</span></div><p>Anak belajar dari orang dewasa yang dipercaya, juga dari teman yang dipuji.</p></div>
-        <div class="th reveal"><div class="no">04</div><h3>Co-regulation</h3><div class="by">Lev Vygotsky</div><div class="flowx"><span>Dipandu</span><i>→</i><span>Diingatkan</span><i>→</i><span>Sendiri</span></div><p>Tahap yang dicatat guru mengikuti alur bantuan yang makin lama makin berkurang.</p></div>
-        <div class="th reveal"><div class="no">05</div><h3>Ecological systems</h3><div class="by">Urie Bronfenbrenner</div><div class="flowx"><span>Sekolah</span><i>↔</i><span>Rumah</span></div><p>Kabar Kampung memperkuat hubungan sekolah dan rumah, tempat anak menghabiskan sebagian besar waktunya.</p></div>
-        <div class="th reveal" style="background:var(--sun-soft);border-color:var(--sun-soft)"><div class="no">+</div><h3>Ing ngarsa sung tuladha</h3><div class="by">Ki Hajar Dewantara</div><p>Guru sebagai pamong memberi teladan dari depan. Kabar Kampung mengajak orang tua ikut menjadi teladan di rumah.</p></div>
+        <div class="th reveal"><div class="no">01</div><h3>Process model of emotion regulation</h3><div class="by">James Gross</div><div class="flowx"><span>Situation</span><i>→</i><span>Attention</span><i>→</i><span>Response</span></div><p>Panggonan Tenang (the calm place) changes the situation, shifts attention, and calms the body.</p></div>
+        <div class="th reveal"><div class="no">02</div><h3>Emotion coaching</h3><div class="by">John Gottman</div><div class="flowx"><span>Notice</span><i>→</i><span>Name the feeling</span><i>→</i><span>Guide</span></div><p>Naming the feeling comes first. Swara Rasa (voice of feelings) trains teachers and parents to do it.</p></div>
+        <div class="th reveal"><div class="no">03</div><h3>Social learning</h3><div class="by">Albert Bandura</div><div class="flowx"><span>Adults model</span><i>→</i><span>Children copy</span></div><p>Children learn from adults they trust, and from friends they see being praised.</p></div>
+        <div class="th reveal"><div class="no">04</div><h3>Co-regulation</h3><div class="by">Lev Vygotsky</div><div class="flowx"><span>Guided</span><i>→</i><span>Reminded</span><i>→</i><span>On their own</span></div><p>The stages teachers log follow support that slowly fades over time.</p></div>
+        <div class="th reveal"><div class="no">05</div><h3>Ecological systems</h3><div class="by">Urie Bronfenbrenner</div><div class="flowx"><span>School</span><i>↔</i><span>Home</span></div><p>Kabar Kampung strengthens the link between school and home, where children spend most of their time.</p></div>
+        <div class="th reveal" style="background:var(--sun-soft);border-color:var(--sun-soft)"><div class="no">+</div><h3>Ing ngarsa sung tuladha<span class="gl">“the one in front sets the example”</span></h3><div class="by">Ki Hajar Dewantara</div><p>The teacher, as <i>pamong</i> (guiding mentor), leads by example. Kabar Kampung invites parents to be that example at home too.</p></div>
       </div>
     </div>
   </section>
@@ -571,61 +573,71 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   <section id="evaluasi" style="padding-top:20px">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><div class="eyebrow">Evaluasi</div><h2>Bagaimana kami tahu berhasil.</h2></div>
-        <p>Pengukuran pre dan post tetap memakai tiga instrumen dari rancangan. Data Kabar Kampung hanya dipakai untuk memantau jalannya program.</p>
+        <div><div class="eyebrow">Evaluation</div><h2>How we will know it works.</h2></div>
+        <p>Pre- and post-tests still use the three instruments from the design. Kabar Kampung data is only used to monitor how the programme is running.</p>
       </div>
       <div class="eval">
-        <div class="ev reveal"><div class="rng">0–28</div><h3>Tes pengenalan emosi</h3><p>Observer terlatih, satu anak sekitar 10 menit: mengenali wajah, situasi, dan respons.</p></div>
-        <div class="ev reveal"><div class="rng">10 × 0–3</div><h3>Checklist observasi perilaku</h3><p>Dari dibantu orang dewasa hingga mandiri, saat kegiatan kelas, istirahat, dan transisi.</p></div>
-        <div class="ev reveal"><div class="rng">1–5</div><h3>Kuesioner orang tua dan guru</h3><p>Menilai dua minggu terakhir, lalu dibandingkan silang untuk membatasi bias.</p></div>
+        <div class="ev reveal"><div class="rng">0–28</div><h3>Emotion recognition test</h3><p>A trained observer, about 10 minutes per child: faces, situations, and responses.</p></div>
+        <div class="ev reveal"><div class="rng">10 × 0–3</div><h3>Behaviour observation checklist</h3><p>From adult-assisted to independent, during class activities, break time, and transitions.</p></div>
+        <div class="ev reveal"><div class="rng">1–5</div><h3>Parent and teacher questionnaire</h3><p>Rates the last two weeks, then cross-checked to limit bias.</p></div>
       </div>
-      <p class="ev-note reveal">Yang ditambahkan Kabar Kampung untuk bagian <b>During</b>: tingkat kembalinya kartu Layang Misi, log menenangkan diri, dan sebaran pujian, semuanya langsung tersedia tanpa rekap manual.</p>
+      <p class="ev-note reveal">What Kabar Kampung adds to the <b>During</b> stage: the Layang Misi card return rate, the calm-down log, and how praise is spread, all available without manual tallying.</p>
+    </div>
+  </section>
+
+  <section id="glosarium" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><div class="eyebrow">Javanese words</div><h2>A small Javanese glossary.</h2></div>
+        <p>The programme uses Javanese, the everyday language of many families in Yogyakarta, so the names feel familiar to children. Here is what each word means.</p>
+      </div>
+      <div class="eval" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))"><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Kampung Rukun Cilik</h3><p>the little village of harmony (programme name)</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Kabar Kampung</h3><p>village news</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Swara Rasa</h3><p>voice of feelings</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Panggonan Tenang</h3><p>calm place</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Pamitan Becik</h3><p>kind goodbye</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Layang Misi</h3><p>mission letter</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">pamong</h3><p>guiding mentor; Ki Hajar Dewantara’s word for a teacher</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Seneng · Sedih · Nesu · Wedi</h3><p>happy · sad · angry · scared</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">tiup lilin dhisik</h3><p>blow out the candle first</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Awakmu nesu ya</h3><p>you’re angry, aren’t you?</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Aku seneng amarga mau kowe…</h3><p>I liked it today when you…</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Matur nuwun</h3><p>thank you</p></div><div class="ev reveal"><h3 lang="jv" style="font-size:18px">Ing ngarsa sung tuladha</h3><p>the one in front sets the example</p></div></div>
     </div>
   </section>
 
   <section class="cta">
     <div class="wrap reveal">
-      <h2>Yuk, coba sendiri.</h2>
-      <p>Masuk ke prototipe dari sudut pandang yang ingin dilihat lebih dulu.</p>
+      <h2>Come and try it.</h2>
+      <p>Enter the prototype from whichever point of view you want to see first.</p>
       <div class="row">
-        <button type="button" class="btn btn-primary" data-goto="1">Sebagai guru</button>
-        <button type="button" class="btn btn-sec" data-goto="4">Sebagai orang tua</button>
-        <button type="button" class="btn btn-sec" data-goto="6">Rekap tim</button>
+        <button type="button" class="btn btn-primary" data-goto="1">As a teacher</button>
+        <button type="button" class="btn btn-sec" data-goto="4">As a parent</button>
+        <button type="button" class="btn btn-sec" data-goto="6">Team recap</button>
       </div>
     </div>
   </section>
-  <footer><div class="wrap">Kabar Kampung · prototipe konsep untuk intervensi Kampung Rukun Cilik, TK Negeri 2 Yogyakarta. Semua nama dan data contoh fiktif dan hanya tersimpan sementara selama demo.</div></footer>
+  <footer><div class="wrap">Kabar Kampung · concept prototype for the Kampung Rukun Cilik intervention, TK Negeri 2 Yogyakarta. All names and sample data are fictional and only kept temporarily during the demo.</div></footer>
 </main>
 
 <!-- ============ PROTOTIPE ============ -->
 <main class="page" id="pageProto" hidden>
   <div class="proto">
     <aside class="panel">
-      <button type="button" class="reset" data-route="beranda" style="border:none;padding:0;min-height:30px">← Kembali ke beranda</button>
-      <div><div class="eyebrow">Prototipe</div><h1 style="margin-top:8px">Satu kelas, tiga layar.</h1></div>
-      <div><div class="lbl" style="margin-bottom:8px">Lihat sebagai</div><div class="seg" id="seg"></div></div>
+      <button type="button" class="reset" data-route="beranda" style="border:none;padding:0;min-height:30px">← Back to home</button>
+      <div><div class="eyebrow">Prototype</div><h1 style="margin-top:8px">One class, three screens.</h1></div>
+      <div><div class="lbl" style="margin-bottom:8px">View as</div><div class="seg" id="seg"></div></div>
       <p class="role-desc" id="roleDesc"></p>
-      <div class="fam" id="famBox"><label for="famSel">Masuk sebagai keluarga</label><select id="famSel"></select></div>
+      <div class="fam" id="famBox"><label for="famSel">Signed in as the family of</label><select id="famSel"></select></div>
       <div>
-        <div class="scen-head"><div class="lbl">Skenario demo</div><div class="prog"><i><b id="progBar"></b></i><span id="progTxt">0/6</span></div></div>
+        <div class="scen-head"><div class="lbl">Demo scenario</div><div class="prog"><i><b id="progBar"></b></i><span id="progTxt">0/6</span></div></div>
         <ul class="scen" id="scen" style="margin-top:10px"></ul>
       </div>
       <div class="onscreen" id="onscreen"></div>
-      <button type="button" class="reset" id="resetDemo">Ulang demo dari awal</button>
+      <button type="button" class="reset" id="resetDemo">Restart the demo</button>
     </aside>
     <div class="stage">
       <div class="stage-in">
         <div class="phone"><div class="screen" id="screen"></div></div>
-        <p class="cap">Profil contoh · data hanya tersimpan sementara selama demo berlangsung.</p>
+        <p class="cap">Sample profiles · data is only kept temporarily during the demo.</p>
       </div>
     </div>
   </div>
 </main>
 
 <!-- ============ CERITA PEMBUKA ============ -->
-<div class="story" id="story" hidden role="dialog" aria-modal="true" aria-label="Cerita pembuka">
-  <button type="button" class="skip" id="skipStory">Lewati</button>
-  <div class="ctrl" role="group" aria-label="Kontrol cerita"><button type="button" id="prevStory" aria-label="Adegan sebelumnya"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="ppStory" class="pp"></button><button type="button" id="nextStory" aria-label="Adegan berikutnya"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><span class="kb">Spasi: jeda · ← →: pindah adegan</span></div>
+<div class="story" id="story" hidden role="dialog" aria-modal="true" aria-label="Opening story">
+  <button type="button" class="skip" id="skipStory">Skip</button>
+  <div class="ctrl" role="group" aria-label="Story controls"><button type="button" id="prevStory" aria-label="Previous scene"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="ppStory" class="pp"></button><button type="button" id="nextStory" aria-label="Next scene"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><span class="kb">Space: pause · ← →: change scene</span></div>
   <div class="scene-txt" id="sceneTxt" aria-live="polite"></div>
   <div class="bar" id="storyBar"></div>
 </div>
@@ -636,43 +648,57 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   var KIDS=['Fai','Raka','Sekar','Bima','Laras','Dimas'];
   var AV={Fai:'#FFC93C',Raka:'#9FD0FA',Sekar:'#FFB59E',Bima:'#9FE0CC',Laras:'#D2C4FF',Dimas:'#FFE08A'};
   var FEEL=['Seneng','Sedih','Nesu','Wedi'];
-  var TEN=['Dipandu guru','Cukup diingatkan','Pergi sendiri'];
-  var PRAISE={'Nunggu giliran':'Aku seneng amarga mau kowe ngenteni giliran.','Mbantu kanca':'Aku seneng amarga mau kowe mbantu aku.','Berbagi':'Aku seneng amarga mau kowe gelem bagi dolanan.','Ngajak dolanan':'Aku seneng amarga mau kowe ngajak aku dolanan.'};
+  var TEN=['Guided by teacher','Just reminded','Went on their own'];
+  var PRAISE={'Waiting their turn':'Aku seneng amarga mau kowe ngenteni giliran.','Helping a friend':'Aku seneng amarga mau kowe mbantu aku.','Sharing':'Aku seneng amarga mau kowe gelem bagi dolanan.','Inviting to play':'Aku seneng amarga mau kowe ngajak aku dolanan.'};
   var ICON={swara:'<path d="M4 5h16v10H9l-5 4z"/>',tenang:'<path d="M12 3c2 3 3 4.5 3 6.5a3 3 0 0 1-6 0C9 7.5 10 6 12 3z"/><path d="M9 14h6v7H9z"/>',becik:'<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>',misi:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 7l9 6 9-6"/>',lock:'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',check:'<path d="M5 12l5 5 9-10"/>',home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',board:'<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',pen:'<path d="M4 20h4L19 9l-4-4L4 16z"/>',list:'<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>'};
-  var GL={};
+  var GL={Seneng:'happy',Sedih:'sad',Nesu:'angry',Wedi:'scared','Aku seneng amarga mau kowe ngenteni giliran.':'“I liked it today when you waited your turn.”','Aku seneng amarga mau kowe mbantu aku.':'“I liked it today when you helped me.”','Aku seneng amarga mau kowe gelem bagi dolanan.':'“I liked it today when you shared your toys.”','Aku seneng amarga mau kowe ngajak aku dolanan.':'“I liked it today when you asked me to play.”','Aku seneng amarga mau kowe mbantu beresin balok.':'“I liked it today when you helped tidy up the blocks.”'};
   function gl(t){return GL[t]?'<span class="tr">'+GL[t]+'</span>':'';}
   function lab(t){return GL[t]?t+' <span class="gi">· '+GL[t]+'</span>':t;}
   var MOM={
-    swara:{name:'Swara Rasa',sub:'Menyebut perasaannya',q:'Perasaan apa yang ia sebut?',opts:FEEL},
-    tenang:{name:'Panggonan Tenang',sub:'Menenangkan diri',q:'Bagaimana ia tenang?',opts:TEN},
-    becik:{name:'Pamitan Becik',sub:'Pujian dari teman',q:'Dipuji karena apa?',opts:Object.keys(PRAISE)},
-    misi:{name:'Layang Misi',sub:'Kartu kembali',q:'Bintang di kartu',opts:['0 bintang','1 bintang','2 bintang','3 bintang']}
+    swara:{name:'Swara Rasa',sub:'Voice of feelings: named a feeling',q:'Which feeling did they name?',opts:FEEL},
+    tenang:{name:'Panggonan Tenang',sub:'Calm place: calmed down',q:'How did they calm down?',opts:TEN},
+    becik:{name:'Pamitan Becik',sub:'Kind goodbye: praised by a friend',q:'Praised for what?',opts:Object.keys(PRAISE)},
+    misi:{name:'Layang Misi',sub:'Mission letter: card returned',q:'Stars on the card',opts:['0 stars','1 star','2 stars','3 stars']}
   };
   function seed(){return{
-    Fai:{feel:['Seneng','Sedih','Nesu'],tenang:['Dipandu guru','Cukup diingatkan','Cukup diingatkan'],praise:[{from:'Raka',day:'Senin',t:PRAISE['Nunggu giliran']},{from:'Sekar',day:'Rabu',t:'Aku seneng amarga mau kowe mbantu beresin balok.'}],stars:null,moments:6,story:null,inc:0},
-    Raka:{feel:['Seneng','Nesu'],tenang:['Dipandu guru','Dipandu guru'],praise:[{from:'Bima',day:'Selasa',t:PRAISE['Ngajak dolanan']}],stars:3,moments:4,story:null,inc:1},
-    Sekar:{feel:['Seneng','Sedih','Wedi'],tenang:['Pergi sendiri'],praise:[{from:'Fai',day:'Senin',t:PRAISE['Berbagi']}],stars:2,moments:4,story:null,inc:0},
-    Bima:{feel:['Nesu'],tenang:['Dipandu guru','Cukup diingatkan'],praise:[{from:'Laras',day:'Rabu',t:PRAISE['Nunggu giliran']}],stars:null,moments:3,story:null,inc:1},
-    Laras:{feel:['Seneng','Sedih'],tenang:[],praise:[{from:'Dimas',day:'Selasa',t:PRAISE['Mbantu kanca']}],stars:1,moments:2,story:null,inc:0},
-    Dimas:{feel:['Seneng'],tenang:['Dipandu guru'],praise:[],stars:null,moments:1,story:null,inc:0}
+    Fai:{feel:['Seneng','Sedih','Nesu'],tenang:['Guided by teacher','Just reminded','Just reminded'],praise:[{from:'Raka',day:'Monday',t:PRAISE['Waiting their turn']},{from:'Sekar',day:'Wednesday',t:'Aku seneng amarga mau kowe mbantu beresin balok.'}],stars:null,moments:6,story:null,inc:0},
+    Raka:{feel:['Seneng','Nesu'],tenang:['Guided by teacher','Guided by teacher'],praise:[{from:'Bima',day:'Tuesday',t:PRAISE['Inviting to play']}],stars:3,moments:4,story:null,inc:1},
+    Sekar:{feel:['Seneng','Sedih','Wedi'],tenang:['Went on their own'],praise:[{from:'Fai',day:'Monday',t:PRAISE['Sharing']}],stars:2,moments:4,story:null,inc:0},
+    Bima:{feel:['Nesu'],tenang:['Guided by teacher','Just reminded'],praise:[{from:'Laras',day:'Wednesday',t:PRAISE['Waiting their turn']}],stars:null,moments:3,story:null,inc:1},
+    Laras:{feel:['Seneng','Sedih'],tenang:[],praise:[{from:'Dimas',day:'Tuesday',t:PRAISE['Helping a friend']}],stars:1,moments:2,story:null,inc:0},
+    Dimas:{feel:['Seneng'],tenang:['Guided by teacher'],praise:[],stars:null,moments:1,story:null,inc:0}
   };}
   var SCEN=[
-    {t:'Catat Swara Rasa untuk Fai',r:'guru',s:'Guru · Catat'},
-    {t:'Catat pujian Pamitan Becik untuk Fai',r:'guru',s:'Guru · Catat'},
-    {t:'Catat insiden Bima secara terpisah',r:'guru',s:'Guru · Catat'},
-    {t:'Buka Kabar Kampung keluarga Fai',r:'ortu',s:'Orang tua · Kabar'},
-    {t:'Kirim cerita dari rumah',r:'ortu',s:'Orang tua · Kabar'},
-    {t:'Lihat rekap mingguan kelas',r:'tim',s:'Tim · Rekap'}
+    {t:'Log a Swara Rasa moment for Fai',r:'guru',s:'Teacher · Log'},
+    {t:'Log a Pamitan Becik compliment for Fai',r:'guru',s:'Teacher · Log'},
+    {t:'Log an incident for Bima separately',r:'guru',s:'Teacher · Log'},
+    {t:'Open Fai’s family Kabar Kampung',r:'ortu',s:'Parent · News'},
+    {t:'Send a story from home',r:'ortu',s:'Parent · News'},
+    {t:'View the weekly class recap',r:'tim',s:'Team · Recap'}
   ];
   var S,timer=null;
   function reset(){S={data:seed(),role:'guru',gtab:'catat',t:{child:'Fai',moment:null,option:null},fam:'Fai',today:6,toast:'',newPraise:null,done:[false,false,false,false,false,false],hint:null,log:[
-    {k:'Sekar',txt:'Panggonan Tenang · Pergi sendiri',when:'09.10'},{k:'Raka',txt:'Swara Rasa · Nesu',when:'08.40'},{k:'Fai',txt:'Swara Rasa · Seneng',when:'07.45'}]};}
+    {k:'Sekar',txt:'Panggonan Tenang · Went on their own',when:'09.10'},{k:'Raka',txt:'Swara Rasa · Nesu',when:'08.40'},{k:'Fai',txt:'Swara Rasa · Seneng',when:'07.45'}]};}
   reset();
 
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function svg(inner,size,stroke,fill){return '<svg width="'+(size||20)+'" height="'+(size||20)+'" viewBox="0 0 24 24" fill="'+(fill||'none')+'" stroke="'+(stroke||'currentColor')+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+inner+'</svg>';}
   function mi(id,sz){return '<span class="mi t-'+id+'">'+svg(ICON[id],sz||20)+'</span>';}
   function stage(list){if(!list.length)return null;var c={};list.forEach(function(x){c[x]=(c[x]||0)+1;});var b=null;TEN.forEach(function(lv){if(c[lv]&&(b===null||c[lv]>=c[b]))b=lv;});return b;}
+  var CUSTOM='Write your own…';
+  function optList(t){if(t.moment==='swara')return (t.multi||[]).slice();if(t.moment==='becik'&&t.option===CUSTOM){var c=(t.custom||'').trim();return c?[c]:[];}return t.option?[t.option]:[];}
+  function isReady(t){return !!(t.moment&&optList(t).length);}
+  function optText(t){return optList(t).join(', ');}
+  function pillsHTML(t,m){
+    var multi=t.moment==='swara',list=m.opts.slice();if(t.moment==='becik')list.push(CUSTOM);
+    var none=!optList(t).length&&t.option!==CUSTOM;
+    var h='<div class="q">3. '+m.q+(multi?' <span class="qsub">(you can pick more than one)</span>':'')+'</div><div class="pills">';
+    list.forEach(function(o){var on=multi?(t.multi||[]).indexOf(o)>-1:t.option===o;
+      h+='<button type="button" class="pill'+(o===CUSTOM?' pill-own':'')+((S.hint===0||S.hint===1)&&none?' pulse':'')+'" data-act="opt" data-v="'+esc(o)+'" aria-pressed="'+on+'">'+(o===CUSTOM?svg(ICON.pen,15)+' ':'')+lab(o)+'</button>';});
+    h+='</div>';
+    if(t.moment==='becik'&&t.option===CUSTOM)h+='<label for="ownPraise" class="sm mu" style="display:block;margin-top:10px">Type the friend’s compliment. The giver’s name is not sent.</label><textarea id="ownPraise" rows="2" placeholder="Example: You waited for me to finish on the swing.">'+esc(t.custom||'')+'</textarea>';
+    return h;
+  }
   function friendOf(n){return KIDS[(KIDS.indexOf(n)+1)%KIDS.length];}
   function nowTime(){var d=new Date();return ('0'+d.getHours()).slice(-2)+'.'+('0'+d.getMinutes()).slice(-2);}
 
@@ -709,12 +735,12 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   function markDone(i){S.done[i]=true;}
 
   /* ---------- panel ---------- */
-  var ROLES={guru:{n:'Guru',ic:'board',d:'Mencatat momen dari empat tradisi dalam sekitar 10 detik, dan mencatat insiden secara terpisah.'},
-    ortu:{n:'Orang tua',ic:'home',d:'Membaca Kabar Kampung anaknya sendiri setiap Jumat, lalu membalas dengan cerita dari rumah.'},
-    tim:{n:'Tim',ic:'chart',d:'Guru dan tim intervensi melihat rekap seluruh kelas untuk rapat mingguan 5 menit.'}};
-  var ONS={guru:'<b>Catat momen</b>Pilih anak, momen, lalu detailnya. Momen biasa masuk ke Kabar Kampung. Tombol insiden menyimpan catatan yang hanya terlihat guru dan tim.',
-    ortu:'<b>Kabar Kampung</b>Rangkuman minggu ini untuk satu keluarga. Ganti keluarga di atas untuk melihat bahwa tiap keluarga hanya melihat anaknya sendiri.',
-    tim:'<b>Rekap minggu ini</b>Bahan rapat guru: kartu yang kembali, anak yang belum dipuji, dan insiden. Tidak pernah dipajang atau dikirim ke orang tua.'};
+  var ROLES={guru:{n:'Teacher',ic:'board',d:'Logs moments from the four traditions in about 10 seconds, and logs incidents separately.'},
+    ortu:{n:'Parent',ic:'home',d:'Reads their own child’s Kabar Kampung every Friday, then replies with a story from home.'},
+    tim:{n:'Team',ic:'chart',d:'Teachers and the intervention team see the whole-class recap for a 5-minute weekly meeting.'}};
+  var ONS={guru:'<b>Log a moment</b>Choose a child, a moment, then the detail. Regular moments go into Kabar Kampung. You can pick more than one feeling in Swara Rasa, and type your own Pamitan Becik compliment. The incident button saves a note only teachers and the team can see.',
+    ortu:'<b>Kabar Kampung</b>This week’s summary for one family. Switch family above to see that each family only sees their own child.',
+    tim:'<b>This week’s recap</b>Material for the teachers’ meeting: returned cards, children not yet praised, and incidents. Never displayed or sent to parents.'};
   function renderPanel(){
     var seg='';Object.keys(ROLES).forEach(function(k){seg+='<button type="button" data-role="'+k+'" aria-pressed="'+(S.role===k)+'">'+svg(ICON[ROLES[k].ic],20)+ROLES[k].n+'</button>';});
     document.getElementById('seg').innerHTML=seg;
@@ -723,12 +749,12 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
     document.getElementById('famSel').innerHTML=KIDS.map(function(k){return '<option'+(k===S.fam?' selected':'')+'>'+k+'</option>';}).join('');
     var n=S.done.filter(Boolean).length,cur=firstUndone(),h='';
     SCEN.forEach(function(s,i){var cls=S.done[i]?'done':(i===cur?'cur':'');
-      h+='<li><button type="button" class="'+cls+'" data-step="'+i+'"><span class="ck">'+(S.done[i]?svg(ICON.check,16,'#fff'):(i+1))+'</span><span><b>'+s.t+'</b><small>'+s.s+'</small></span>'+(i===cur?'<span class="nx">Berikutnya</span>':'')+'</button></li>';});
+      h+='<li><button type="button" class="'+cls+'" data-step="'+i+'"><span class="ck">'+(S.done[i]?svg(ICON.check,16,'#fff'):(i+1))+'</span><span><b>'+s.t+'</b><small>'+s.s+'</small></span>'+(i===cur?'<span class="nx">Next</span>':'')+'</button></li>';});
     document.getElementById('scen').innerHTML=h;
     document.getElementById('progTxt').textContent=n+'/6';
     document.getElementById('progBar').style.width=(n/6*100)+'%';
     if(n===6&&!S.celebrated){S.celebrated=true;setTimeout(function(){sfx('yay');confetti(innerWidth/2,innerHeight/3);},200);}
-    document.getElementById('onscreen').innerHTML=ONS[S.role]+(n===6?'<p style="margin-top:8px;font-weight:800;color:var(--blue)">Semua skenario selesai. Matur nuwun!</p>':'');
+    document.getElementById('onscreen').innerHTML=ONS[S.role]+(n===6?'<p style="margin-top:8px;font-weight:800;color:var(--blue)">All scenarios done. Matur nuwun (thank you)!</p>':'');
   }
 
   /* ---------- phone screens ---------- */
@@ -738,57 +764,57 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
       '<div class="toast" role="status" '+(S.toast?'':'hidden')+'>'+esc(S.toast)+'</div>';
   }
   function guruScreen(){
-    var t=S.t,m=t.moment?MOM[t.moment]:null,ready=!!(t.moment&&t.option),h;
-    var tabs='<div class="tabs"><button type="button" data-gtab="catat" aria-pressed="'+(S.gtab==='catat')+'">'+svg(ICON.pen,20)+'Catat</button><button type="button" data-gtab="log" aria-pressed="'+(S.gtab==='log')+'">'+svg(ICON.list,20)+'Hari ini</button></div>';
+    var t=S.t,m=t.moment?MOM[t.moment]:null,ready=isReady(t),h;
+    var tabs='<div class="tabs"><button type="button" data-gtab="catat" aria-pressed="'+(S.gtab==='catat')+'">'+svg(ICON.pen,20)+'Log</button><button type="button" data-gtab="log" aria-pressed="'+(S.gtab==='log')+'">'+svg(ICON.list,20)+'Today</button></div>';
     if(S.gtab==='log'){
-      h='<div class="scr-head"><div><small>Kelas [NAMA KELAS]</small><h3>Hari ini</h3></div><div class="badge"><b>'+S.today+'</b><span>momen<br>tercatat</span></div></div><div class="scroll">';
-      S.log.forEach(function(l){h+='<div class="log'+(l.inc?' inc':'')+'"><span class="av" style="background:'+AV[l.k]+'">'+l.k.charAt(0)+'</span><div><b>'+l.k+' · '+esc(l.txt)+'</b><small>'+l.when+(l.inc?' · hanya guru & tim':' · masuk Kabar Kampung')+'</small></div></div>';});
+      h='<div class="scr-head"><div><small>Class [CLASS NAME]</small><h3>Today</h3></div><div class="badge"><b>'+S.today+'</b><span>moments<br>logged</span></div></div><div class="scroll">';
+      S.log.forEach(function(l){h+='<div class="log'+(l.inc?' inc':'')+'"><span class="av" style="background:'+AV[l.k]+'">'+l.k.charAt(0)+'</span><div><b>'+l.k+' · '+esc(l.txt)+'</b><small>'+l.when+(l.inc?' · teachers & team only':' · goes to Kabar Kampung')+'</small></div></div>';});
       h+='</div>';return shell(h,tabs);
     }
-    h='<div class="scr-head"><div><small>Jumat · Kelas [NAMA KELAS]</small><h3>Catat momen</h3></div><div class="badge"><b>'+S.today+'</b><span>momen<br>hari ini</span></div></div><div class="scroll">';
-    h+='<div><div class="q">1. Siapa?</div><div class="g3">';
+    h='<div class="scr-head"><div><small>Friday · Class [CLASS NAME]</small><h3>Log a moment</h3></div><div class="badge"><b>'+S.today+'</b><span>moments<br>today</span></div></div><div class="scroll">';
+    h+='<div><div class="q">1. Who?</div><div class="g3">';
     KIDS.forEach(function(k){h+='<button type="button" class="kid" data-act="kid" data-v="'+k+'" aria-pressed="'+(t.child===k)+'"><span class="av" style="background:'+AV[k]+'">'+k.charAt(0)+'</span>'+k+'</button>';});
-    h+='</div></div><div><div class="q">2. Momen apa?</div><div class="g2">';
+    h+='</div></div><div><div class="q">2. Which moment?</div><div class="g2">';
     Object.keys(MOM).forEach(function(id){h+='<button type="button" class="mom" data-act="mom" data-v="'+id+'" aria-pressed="'+(t.moment===id)+'">'+mi(id,20)+'<b>'+MOM[id].name+'</b><small>'+MOM[id].sub+'</small></button>';});
     h+='</div></div><div>';
-    if(m){h+='<div class="q">3. '+m.q+'</div><div class="pills">';m.opts.forEach(function(o){h+='<button type="button" class="pill'+((S.hint===0||S.hint===1)&&!t.option?' pulse':'')+'" data-act="opt" data-v="'+esc(o)+'" aria-pressed="'+(t.option===o)+'">'+lab(o)+'</button>';});h+='</div>';}
-    else h+='<div class="empty">3. Pilih momen dulu, detailnya muncul di sini.</div>';
-    h+='</div><button type="button" class="ghost'+(S.hint===2?' pulse':'')+'" data-act="inc">'+svg(ICON.lock,16)+'Catat insiden (hanya guru &amp; tim)</button></div>';
-    h+='<div class="foot"><button type="button" class="save'+(ready&&(S.hint===0||S.hint===1)?' pulse':'')+'" data-act="save" aria-disabled="'+(!ready)+'">Simpan momen</button><div class="hint">'+(ready?esc(t.child+' · '+m.name+' · '+t.option):'Pilih anak, momen, lalu detailnya')+'</div></div>';
+    if(m){h+=pillsHTML(t,m);}
+    else h+='<div class="empty">3. Pick a moment first; the details appear here.</div>';
+    h+='</div><button type="button" class="ghost'+(S.hint===2?' pulse':'')+'" data-act="inc">'+svg(ICON.lock,16)+'Log an incident (teachers &amp; team only)</button></div>';
+    h+='<div class="foot"><button type="button" class="save'+(ready&&(S.hint===0||S.hint===1)?' pulse':'')+'" data-act="save" aria-disabled="'+(!ready)+'">Save moment</button><div class="hint">'+(ready?esc(t.child+' · '+m.name+' · '+optText(t)):'Choose a child, a moment, then the detail')+'</div></div>';
     return shell(h,tabs);
   }
   function ortuScreen(){
     var n=S.fam,d=S.data[n],st=stage(d.tenang),h='<div class="scroll" style="padding-top:8px">';
-    h+='<div class="notif">'+svg(ICON.misi,22,'#FFC93C')+'<div><small>Jumat · 14.00</small><p>Kabar '+n+' minggu ini sudah tiba.</p></div></div>';
-    h+='<div class="whoc"><span class="av" style="background:'+AV[n]+'">'+n.charAt(0)+'</span><div><b>'+n+'</b><small>Kelas [NAMA KELAS]</small></div><span class="tag">Data contoh</span></div>';
-    h+='<div class="card sun"><h4>'+mi('becik',18)+'Pujian dari teman minggu ini</h4>';
-    if(d.praise.length){d.praise.forEach(function(p,i){h+='<div class="quote'+(S.newPraise===n&&i===d.praise.length-1?' new':'')+'"><p>“'+esc(p.t)+'”</p>'+gl(p.t)+'<small>'+esc(p.from)+' · '+esc(p.day)+', Pamitan Becik</small></div>';});h+='<p class="sm">Coba tanyakan di rumah: “Tadi siapa yang bilang seneng sama kamu?”</p>';}
-    else h+='<p class="sm">Pujian minggu ini akan muncul di sini setelah Pamitan Becik.</p>';
-    h+='</div><div class="card"><h4>'+mi('tenang',18)+'Belajar menenangkan diri</h4>';
-    if(st){var idx=TEN.indexOf(st);h+='<div class="steps3">';TEN.forEach(function(lv,i){h+='<div class="'+(i<=idx?'on':'')+(i===idx?' here':'')+'"><i></i><span>'+lv+'</span>'+(i===idx?'<span class="here-tag">'+n+' di sini</span>':'')+'</div>';});h+='</div>';
+    h+='<div class="notif">'+svg(ICON.misi,22,'#FFC93C')+'<div><small>Friday · 2 pm</small><p>'+n+'’s news for this week is here.</p></div></div>';
+    h+='<div class="whoc"><span class="av" style="background:'+AV[n]+'">'+n.charAt(0)+'</span><div><b>'+n+'</b><small>Class [CLASS NAME]</small></div><span class="tag">Sample data</span></div>';
+    h+='<div class="card sun"><h4>'+mi('becik',18)+'Praise from friends this week</h4>';
+    if(d.praise.length){d.praise.forEach(function(p,i){h+='<div class="quote'+(S.newPraise===n&&i===d.praise.length-1?' new':'')+'"><p>“'+esc(p.t)+'”</p>'+gl(p.t)+'<small>'+esc(p.day)+' · from a friend, Pamitan Becik (kind goodbye)</small></div>';});h+='<p class="sm">Try asking at home: “What did a friend praise you for today?”</p>';}
+    else h+='<p class="sm">This week’s praise will appear here after Pamitan Becik.</p>';
+    h+='</div><div class="card"><h4>'+mi('tenang',18)+'Learning to calm down</h4>';
+    if(st){var idx=TEN.indexOf(st);h+='<div class="steps3">';TEN.forEach(function(lv,i){h+='<div class="'+(i<=idx?'on':'')+(i===idx?' here':'')+'"><i></i><span>'+lv+'</span>'+(i===idx?'<span class="here-tag">'+n+' is here</span>':'')+'</div>';});h+='</div>';
       var c={};d.tenang.forEach(function(x){c[x]=(c[x]||0)+1;});var parts=[];TEN.forEach(function(lv){if(c[lv])parts.push(lv.toLowerCase()+' '+c[lv]+'×');});
-      h+='<p class="sm">Minggu ini '+n+' '+d.tenang.length+'× ke Panggonan Tenang: '+parts.join(', ')+'.</p>';}
-    else h+='<p class="sm">Minggu ini '+n+' belum perlu ke Panggonan Tenang.</p>';
-    h+='<p class="sm mu" style="border-top:1.5px dashed #E8DEC9;padding-top:9px">Di rumah: kalau mulai nesu, temani dulu, sebutkan rasanya (“Awakmu nesu ya”), lalu tiup lilin bareng tiga kali.</p></div>';
-    h+='<div class="card"><h4>'+mi('swara',18)+'Perasaan yang sudah '+n+' sebut</h4><div class="g2">';
-    FEEL.forEach(function(f){h+=d.feel.indexOf(f)>-1?'<div class="feel">'+svg(ICON.check,18,'#5B3FD1')+'<span>'+lab(f)+'</span></div>':'<div class="feel no"><span>'+lab(f)+' · belum terdengar</span></div>';});
-    h+='</div><p class="sm mu">Belum terdengar bukan berarti belum bisa. Mungkin belum ada kesempatannya.</p></div>';
-    h+='<div class="card"><h4>'+mi('misi',18)+'Layang Misi</h4><p class="sm">'+(d.stars===null?'Kartu minggu ini belum kembali. Tidak apa-apa, '+n+' bisa mengerjakan versi mini di kelas.':'Kartu minggu ini kembali dengan '+d.stars+' bintang. Matur nuwun!')+'</p>';
-    h+='<div class="mission"><b>Minggu depan: memimpin doa makan</b><div class="stars">'+svg(ICON.star,26,'#6B4A1F')+svg(ICON.star,26,'#6B4A1F')+svg(ICON.star,26,'#6B4A1F')+'</div><p class="sm">Sekitar 5 menit, boleh bersama siapa pun di rumah. '+n+' sendiri yang mewarnai bintangnya.</p></div></div>';
-    h+='<div class="card"><h4>'+svg(ICON.home)+'Cerita dari rumah</h4>';
-    if(d.story)h+='<div class="quote"><p>'+esc(d.story)+'</p><small>Terkirim ke Bu Guru</small></div>';
-    else h+='<label for="story" class="sm mu">Ada momen '+n+' menyebut rasanya atau berbuat baik di rumah? Ceritakan singkat (opsional).</label><textarea id="story" rows="3" class="'+(S.hint===4?'pulse-static':'')+'" placeholder="Contoh: Tadi '+n+' bilang “aku nesu”, terus tiup lilin sendiri."></textarea><button type="button" class="send'+(S.hint===4?' pulse':'')+'" data-act="story">Kirim ke Bu Guru</button>';
-    h+='</div><div class="priv">'+svg(ICON.lock,16)+'<p>Halaman ini hanya bisa dilihat keluarga '+n+'. Tanpa nilai, peringkat, atau perbandingan.</p></div></div>';
+      h+='<p class="sm">This week '+n+' went to Panggonan Tenang (the calm place) '+d.tenang.length+'×: '+parts.join(', ')+'.</p>';}
+    else h+='<p class="sm">This week '+n+' has not needed Panggonan Tenang (the calm place).</p>';
+    h+='<p class="sm mu" style="border-top:1.5px dashed #E8DEC9;padding-top:9px">At home: when they start to feel <i>nesu</i> (angry), stay close, name the feeling (“Awakmu nesu ya” = “You’re angry, aren’t you?”), then blow out three pretend candles together.</p></div>';
+    h+='<div class="card"><h4>'+mi('swara',18)+'Feelings '+n+' has named</h4><div class="g2">';
+    FEEL.forEach(function(f){h+=d.feel.indexOf(f)>-1?'<div class="feel">'+svg(ICON.check,18,'#5B3FD1')+'<span>'+lab(f)+'</span></div>':'<div class="feel no"><span>'+lab(f)+' · not heard yet</span></div>';});
+    h+='</div><p class="sm mu">Not heard yet does not mean they can’t. There may simply not have been a chance.</p></div>';
+    h+='<div class="card"><h4>'+mi('misi',18)+'Layang Misi (mission letter)</h4><p class="sm">'+(d.stars===null?'This week’s card has not come back. That’s fine, '+n+' can do a mini version in class.':'This week’s card came back with '+d.stars+' star'+(d.stars===1?'':'s')+'. Matur nuwun (thank you)!')+'</p>';
+    h+='<div class="mission"><b>Next week: lead the mealtime prayer</b><div class="stars">'+svg(ICON.star,26,'#6B4A1F')+svg(ICON.star,26,'#6B4A1F')+svg(ICON.star,26,'#6B4A1F')+'</div><p class="sm">About 5 minutes, with anyone at home. '+n+' colours in the stars.'+'</p></div></div>';
+    h+='<div class="card"><h4>'+svg(ICON.home)+'A story from home</h4>';
+    if(d.story)h+='<div class="quote"><p>'+esc(d.story)+'</p><small>Sent to the teacher</small></div>';
+    else h+='<label for="story" class="sm mu">Did '+n+' name a feeling or do something kind at home? Tell us briefly (optional).</label><textarea id="story" rows="3" class="'+(S.hint===4?'pulse-static':'')+'" placeholder="Example: Today '+n+' said “aku nesu” (I’m angry), then blew out the candles by themself."></textarea><button type="button" class="send'+(S.hint===4?' pulse':'')+'" data-act="story">Send to the teacher</button>';
+    h+='</div><div class="priv">'+svg(ICON.lock,16)+'<p>Only '+n+'’s family can see this page. No grades, rankings, or comparisons.</p></div></div>';
     return shell(h);
   }
   function timScreen(){
     var back=0,inc=0,stories=0,unp=0;KIDS.forEach(function(k){var d=S.data[k];if(d.stars!==null)back++;inc+=d.inc;if(d.story)stories++;if(!d.praise.length)unp++;});
-    var h='<div class="scr-head"><div><small>Minggu ke-[N] · Kelas [NAMA KELAS]</small><h3>Rekap minggu ini</h3></div></div><div class="scroll">';
-    h+='<div class="tiles"><div class="tile"><b>'+back+'/6</b><span>kartu Layang Misi kembali</span></div><div class="tile"><b>'+unp+'</b><span>anak belum dipuji</span></div><div class="tile"><b>'+inc+'</b><span>insiden (internal)</span></div><div class="tile"><b>'+stories+'</b><span>cerita dari rumah</span></div></div>';
-    h+='<div class="q" style="margin:4px 0 0">Per anak</div>';
+    var h='<div class="scr-head"><div><small>Week [N] · Class [CLASS NAME]</small><h3>This week’s recap</h3></div></div><div class="scroll">';
+    h+='<div class="tiles"><div class="tile"><b>'+back+'/6</b><span>Layang Misi cards returned</span></div><div class="tile"><b>'+unp+'</b><span>children not yet praised</span></div><div class="tile"><b>'+inc+'</b><span>incidents (internal)</span></div><div class="tile"><b>'+stories+'</b><span>stories from home</span></div></div>';
+    h+='<div class="q" style="margin:4px 0 0">Per child</div>';
     KIDS.forEach(function(k){var d=S.data[k],st=stage(d.tenang);
-      h+='<div class="krow"><span class="av" style="background:'+AV[k]+'">'+k.charAt(0)+'</span><div><b>'+k+'</b><small>'+(st||'belum ke Panggonan Tenang')+' · '+(d.stars===null?'kartu belum kembali':d.stars+' bintang')+(d.inc?' · '+d.inc+' insiden':'')+'</small></div>'+(d.praise.length?'<span class="okf">'+d.praise.length+'× dipuji</span>':'<span class="flag">belum dipuji</span>')+'</div>';});
-    h+='<p class="sm mu">Untuk anak yang belum dipuji, guru membisikkan petunjuk sebelum Pamitan Becik: “Tadi Dimas bantu beresin balok, kamu lihat?”</p></div>';
+      h+='<div class="krow"><span class="av" style="background:'+AV[k]+'">'+k.charAt(0)+'</span><div><b>'+k+'</b><small>'+(st||'no calm-place visits')+' · '+(d.stars===null?'card not back':d.stars+' star'+(d.stars===1?'':'s'))+(d.inc?' · '+d.inc+' incident'+(d.inc===1?'':'s'):'')+'</small></div>'+(d.praise.length?'<span class="okf">'+d.praise.length+'× praised</span>':'<span class="flag">not yet praised</span>')+'</div>';});
+    h+='<p class="sm mu">For children not yet praised, the teacher whispers a hint before Pamitan Becik: “Dimas helped tidy the blocks earlier, did you see?”</p></div>';
     return shell(h);
   }
   function renderPhone(){document.getElementById('screen').innerHTML=S.role==='guru'?guruScreen():S.role==='ortu'?ortuScreen():timScreen();}
@@ -796,17 +822,18 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   function flash(msg){S.toast=msg;renderPhone();clearTimeout(timer);timer=setTimeout(function(){S.toast='';renderPhone();},3400);}
 
   function save(){
-    var t=S.t;if(!(t.moment&&t.option)){sfx('meh');return;}
+    var t=S.t;if(!isReady(t)){sfx('meh');var ta0=document.getElementById('ownPraise');if(ta0)ta0.focus();return;}
+    var sel=optList(t),txt=optText(t);
     var sb=document.querySelector('#screen .save'),mom0=t.moment;if(sb)var sr=sb.getBoundingClientRect();
     sfx(mom0==='becik'?'yay':'good');if(mom0==='becik'&&sr)confetti(sr.left+sr.width/2,sr.top);
     var d=S.data[t.child];
-    if(t.moment==='swara'){if(d.feel.indexOf(t.option)<0)d.feel.push(t.option);if(t.child==='Fai')markDone(0);}
+    if(t.moment==='swara'){sel.forEach(function(f){if(d.feel.indexOf(f)<0)d.feel.push(f);});if(t.child==='Fai')markDone(0);}
     else if(t.moment==='tenang'){d.tenang.push(t.option);}
-    else if(t.moment==='becik'){d.praise.push({from:friendOf(t.child),day:'Hari ini',t:PRAISE[t.option]});S.newPraise=t.child;if(t.child==='Fai')markDone(1);}
+    else if(t.moment==='becik'){d.praise.push({day:'Today',t:t.option===CUSTOM?sel[0]:PRAISE[t.option]});S.newPraise=t.child;if(t.child==='Fai')markDone(1);}
     else if(t.moment==='misi'){d.stars=parseInt(t.option,10);}
-    d.moments++;S.today++;S.log.unshift({k:t.child,txt:MOM[t.moment].name+' · '+t.option,when:nowTime()});
-    var msg='Tersimpan: '+t.child+', '+MOM[t.moment].name+' ('+t.option+'). Masuk ke Kabar Kampung keluarga '+t.child+'.';
-    S.t={child:t.child,moment:null,option:null};S.hint=null;
+    d.moments++;S.today++;S.log.unshift({k:t.child,txt:MOM[t.moment].name+' · '+txt,when:nowTime()});
+    var msg='Saved: '+t.child+', '+MOM[t.moment].name+' ('+sel.map(function(x){return GL[x]?x+' = '+GL[x]:x;}).join(', ')+'). Added to '+t.child+'’s family Kabar Kampung.';
+    S.t={child:t.child,moment:null,option:null,multi:[],custom:''};S.hint=null;
     renderPanel();flash(msg);
   }
 
@@ -817,20 +844,26 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
     if(b.hasAttribute('data-gtab')){S.gtab=b.getAttribute('data-gtab');renderPhone();return;}
     var a=b.getAttribute('data-act'),v=b.getAttribute('data-v');
     if(a==='kid'){S.t.child=v;renderPhone();}
-    else if(a==='mom'){S.t.moment=v;S.t.option=null;renderPhone();}
-    else if(a==='opt'){S.t.option=v;renderPhone();}
+    else if(a==='mom'){S.t.moment=v;S.t.option=null;S.t.multi=[];S.t.custom='';renderPhone();}
+    else if(a==='opt'){if(S.t.moment==='swara'){var L=S.t.multi||[],k2=L.indexOf(v);if(k2>-1)L.splice(k2,1);else L.push(v);S.t.multi=L;}else S.t.option=v;renderPhone();if(v===CUSTOM){var ta=document.getElementById('ownPraise');if(ta)ta.focus();}}
     else if(a==='save'){save();}
-    else if(a==='inc'){var k=S.t.child;S.data[k].inc++;S.log.unshift({k:k,txt:'Insiden',when:nowTime(),inc:true});if(k==='Bima')markDone(2);S.hint=null;sfx('boop');renderPanel();flash('Insiden '+k+' disimpan terpisah. Tidak dikirim ke orang tua.');}
-    else if(a==='story'){var ta=document.getElementById('story'),txt=(ta&&ta.value||'').trim();if(!txt){ta.focus();ta.setAttribute('placeholder','Tulis satu atau dua kalimat dulu, lalu kirim.');return;}sfx('yay');confettiAt(b);S.data[S.fam].story=txt;markDone(4);S.hint=null;renderProto();}
+    else if(a==='inc'){var k=S.t.child;S.data[k].inc++;S.log.unshift({k:k,txt:'Incident',when:nowTime(),inc:true});if(k==='Bima')markDone(2);S.hint=null;sfx('boop');renderPanel();flash('Incident for '+k+' saved separately. Not sent to parents.');}
+    else if(a==='story'){var ta=document.getElementById('story'),txt=(ta&&ta.value||'').trim();if(!txt){ta.focus();ta.setAttribute('placeholder','Write a sentence or two first, then send.');return;}sfx('yay');confettiAt(b);S.data[S.fam].story=txt;markDone(4);S.hint=null;renderProto();}
+  });
+  document.getElementById('pageProto').addEventListener('input',function(e){
+    if(e.target.id!=='ownPraise')return;S.t.custom=e.target.value;
+    var ok=isReady(S.t),sb=document.querySelector('#screen .save'),hn=document.querySelector('#screen .foot .hint');
+    if(sb)sb.setAttribute('aria-disabled',String(!ok));
+    if(hn)hn.textContent=ok?S.t.child+' · '+MOM[S.t.moment].name+' · '+optText(S.t):'Choose a child, a moment, then the detail';
   });
   document.getElementById('famSel').addEventListener('change',function(e){S.fam=e.target.value;S.newPraise=null;if(S.fam==='Fai')markDone(3);renderProto();});
   document.getElementById('resetDemo').addEventListener('click',function(){clearTimeout(timer);reset();renderProto();});
 
   /* ---------- quiz ---------- */
-  var QZ=[{t:'Dapat es krim kesukaan',want:'Seneng',scene:'<circle cx="40" cy="22" r="13" fill="#F6C7B6"/><path d="M28 30l12 34 12-34z" fill="#E7B76A"/>'},
-          {t:'Mainan kesayangan hilang',want:'Sedih',scene:'<rect x="22" y="30" width="36" height="26" rx="4" fill="none" stroke="#5B3FD1" stroke-width="3" stroke-dasharray="5 4"/><path d="M34 40l12 8M46 40l-12 8" stroke="#5B3FD1" stroke-width="3" stroke-linecap="round"/>'},
-          {t:'Menara balok dirobohkan teman',want:'Nesu',scene:'<rect x="14" y="52" width="16" height="12" fill="#FFC93C"/><rect x="36" y="46" width="16" height="12" fill="#BFD7F5" transform="rotate(18 44 52)"/><rect x="54" y="54" width="14" height="10" fill="#F6C7B6" transform="rotate(-12 61 59)"/>'},
-          {t:'Mimpi buruk di malam hari',want:'Wedi',scene:'<path d="M50 14a20 20 0 1 0 12 34 16 16 0 1 1-12-34z" fill="#2D1F73"/><circle cx="22" cy="20" r="2" fill="#2D1F73"/><circle cx="30" cy="34" r="1.6" fill="#2D1F73"/>'}];
+  var QZ=[{t:'Gets their favourite ice cream',want:'Seneng',scene:'<circle cx="40" cy="22" r="13" fill="#F6C7B6"/><path d="M28 30l12 34 12-34z" fill="#E7B76A"/>'},
+          {t:'Their favourite toy is lost',want:'Sedih',scene:'<rect x="22" y="30" width="36" height="26" rx="4" fill="none" stroke="#5B3FD1" stroke-width="3" stroke-dasharray="5 4"/><path d="M34 40l12 8M46 40l-12 8" stroke="#5B3FD1" stroke-width="3" stroke-linecap="round"/>'},
+          {t:'A friend knocks down their block tower',want:'Nesu',scene:'<rect x="14" y="52" width="16" height="12" fill="#FFC93C"/><rect x="36" y="46" width="16" height="12" fill="#BFD7F5" transform="rotate(18 44 52)"/><rect x="54" y="54" width="14" height="10" fill="#F6C7B6" transform="rotate(-12 61 59)"/>'},
+          {t:'A bad dream at night',want:'Wedi',scene:'<path d="M50 14a20 20 0 1 0 12 34 16 16 0 1 1-12-34z" fill="#2D1F73"/><circle cx="22" cy="20" r="2" fill="#2D1F73"/><circle cx="30" cy="34" r="1.6" fill="#2D1F73"/>'}];
   var NEG=['Sedih','Nesu','Wedi'];
   var qa=[null,null,null,null];
   function face(f){var m={Seneng:'<path d="M9 14.5c1.6 2 4.4 2 6 0"/>',Sedih:'<path d="M9 16.5c1.6-2 4.4-2 6 0"/><path d="M8 10.5l2 .7M16 10.5l-2 .7"/>',Nesu:'<path d="M9 16h6"/><path d="M7.5 8.5l3 1.5M16.5 8.5l-3 1.5"/>',Wedi:'<ellipse cx="12" cy="16" rx="1.8" ry="2.2"/><path d="M8 8l2-.8M16 8l-2-.8"/>'};
@@ -838,10 +871,10 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   function pts(i){var a=qa[i];if(!a)return 0;if(a===QZ[i].want)return 2;if(NEG.indexOf(a)>-1&&NEG.indexOf(QZ[i].want)>-1)return 1;return 0;}
   function renderQuiz(){
     var h='';QZ.forEach(function(q,i){
-      var SB=['var(--sun-soft)','var(--sky-soft)','var(--coral-soft)','#E6E0FF'];h+='<div class="qcard"><div class="scene" style="background:'+SB[i]+'"><svg width="80" height="70" viewBox="0 0 80 70" aria-hidden="true">'+q.scene+'</svg></div><h3>'+(i+1)+'. '+q.t+'</h3><div class="faces" role="group" aria-label="Pilih rasa untuk cerita '+(i+1)+'">';
+      var SB=['var(--sun-soft)','var(--sky-soft)','var(--coral-soft)','#E6E0FF'];h+='<div class="qcard"><div class="scene" style="background:'+SB[i]+'"><svg width="80" height="70" viewBox="0 0 80 70" aria-hidden="true">'+q.scene+'</svg></div><h3>'+(i+1)+'. '+q.t+'</h3><div class="faces" role="group" aria-label="Choose a feeling for story '+(i+1)+'">';
       FEEL.forEach(function(f){h+='<button type="button" class="face" data-q="'+i+'" data-f="'+f+'" aria-pressed="'+(qa[i]===f)+'">'+face(f)+'<span>'+f+'</span>'+(GL[f]?'<span class="gi2">'+GL[f]+'</span>':'')+'</button>';});
       var p=pts(i),fb='';
-      if(qa[i]){fb=p===2?'<b>Tepat, 2 poin.</b> Rasa ini yang paling umum disebut untuk cerita ini.':p===1?'<b>Masih masuk akal, 1 poin.</b> Jenis rasanya sama-sama tidak nyaman. Jawaban utamanya: '+lab(q.want)+'.':'<b>0 poin.</b> Jawaban utamanya: '+lab(q.want)+'.';}
+      if(qa[i]){fb=p===2?'<b>Spot on, 2 points.</b> This is the feeling most often named for this story.':p===1?'<b>Close, 1 point.</b> It is the same kind of uncomfortable feeling. The main answer: '+lab(q.want)+'.':'<b>0 points.</b> The main answer: '+lab(q.want)+'.';}
       h+='</div><p class="fb" aria-live="polite">'+fb+'</p></div>';});
     document.getElementById('quiz').innerHTML=h;
     document.getElementById('qScore').textContent=[0,1,2,3].reduce(function(s,i){return s+pts(i);},0);
@@ -852,18 +885,18 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
 
   /* ---------- story ---------- */
   var SC=[
-    {s:'Suatu pagi di TK',b:'“Bu Guru! Menaraku <em>ambruk</em>!”'},
-    {s:'Usia 4–6 tahun',b:'Rasa <em>nesu</em> sering datang lebih cepat dari kata-katanya.'},
-    {s:'Di Kampung Rukun Cilik',b:'Anak belajar <em>menamai rasa</em>, menenangkan diri bersama guru, dan saling memuji.'},
-    {s:'Tapi setelah bel pulang',b:'Ceritanya sering <em>berhenti</em> di gerbang sekolah.'},
-    {s:'Kabar Kampung',b:'Menyambungkan cerita itu <em>sampai ke rumah.</em>',end:true}
+    {s:'One morning at kindergarten',b:'“Teacher! My tower <em>fell down</em>!”'},
+    {s:'Ages 4 to 6',b:'<em>Nesu</em> (anger) often arrives faster than the words for it.'},
+    {s:'In Kampung Rukun Cilik, the little village of harmony',b:'Children learn to <em>name feelings</em>, calm down with a teacher, and praise each other.'},
+    {s:'But after the home-time bell',b:'The story often <em>stops</em> at the school gate.'},
+    {s:'Kabar Kampung, the village news',b:'Carries that story <em>all the way home.</em>',end:true}
   ];
   var sTimer=null,sIdx=0,DUR=2600,remain=DUR,startedAt=0,paused=false;
   var story=document.getElementById('story'),txt=document.getElementById('sceneTxt'),bar=document.getElementById('storyBar'),lastFocus=null;
   var pp=document.getElementById('ppStory'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var PAUSE_IC='<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
   var PLAY_IC='<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>';
-  function setPP(){pp.innerHTML=(paused?PLAY_IC+'Lanjut':PAUSE_IC+'Jeda');pp.setAttribute('aria-label',paused?'Lanjutkan cerita':'Jeda cerita');}
+  function setPP(){pp.innerHTML=(paused?PLAY_IC+'Resume':PAUSE_IC+'Pause');pp.setAttribute('aria-label',paused?'Resume the story':'Pause the story');}
   function curBar(){return bar.children[sIdx]?bar.children[sIdx].firstChild:null;}
   function runTimer(ms){
     clearTimeout(sTimer);startedAt=Date.now();remain=ms;
@@ -874,7 +907,7 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   function showScene(i){
     sIdx=Math.max(0,Math.min(SC.length-1,i));var c=SC[sIdx];
     txt.classList.remove('show');void txt.offsetWidth;txt.classList.add('show');
-    txt.innerHTML='<div class="small">'+c.s+'</div><div class="big">'+c.b+'</div>'+(c.end?'<div class="end"><button type="button" class="btn btn-primary" id="storyGo">Lihat caranya</button><button type="button" class="btn btn-ghost" style="color:#fff" id="storyAgain">Putar ulang</button></div>':'');
+    txt.innerHTML='<div class="small">'+c.s+'</div><div class="big">'+c.b+'</div>'+(c.end?'<div class="end"><button type="button" class="btn btn-primary" id="storyGo">See how it works</button><button type="button" class="btn btn-ghost" style="color:#fff" id="storyAgain">Play again</button></div>':'');
     bar.innerHTML=SC.map(function(_,k){return '<i><b style="width:'+(k<sIdx?100:0)+'%"></b></i>';}).join('');
     if(!story.hidden)sfx('chime');
     clearTimeout(sTimer);
@@ -985,9 +1018,9 @@ textarea{width:100%;border:1.5px solid var(--line-strong);border-radius:14px;pad
   }
   function setSoundUI(){
     sBtn.setAttribute('aria-pressed',String(soundOn));
-    sBtn.querySelector('.lbl2').textContent=soundOn?'Suara nyala':'Suara mati';
+    sBtn.querySelector('.lbl2').textContent=soundOn?'Sound on':'Sound off';
     sBtn.querySelector('.on').style.display=soundOn?'':'none';sBtn.querySelector('.off').style.display=soundOn?'none':'';
-    var h=document.getElementById('soundHint');if(h)h.textContent=soundOn?(started?'Musik sedang diputar. Matikan lewat tombol Suara di atas.':'Musik dan efek suara mulai setelah klik pertama.'):'Suara dimatikan. Nyalakan lewat tombol Suara di atas.';
+    var h=document.getElementById('soundHint');if(h)h.textContent=soundOn?(started?'Music is playing. Turn it off with the Sound button at the top.':'Music and sound effects start after your first click.'):'Sound is off. Turn it on with the Sound button at the top.';
   }
   sBtn.addEventListener('click',function(e){
     e.stopPropagation();soundOn=!soundOn;try{localStorage.setItem('kk-sound',soundOn?'on':'off');}catch(err){}
